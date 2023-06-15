@@ -1,0 +1,51 @@
+.singleTravailContainer{
+    position: relative;
+    background-color: #d9d9d9;
+    border-radius: 40px;
+    box-shadow: 0px 3px 5px grey;
+}
+
+.titreTravailContainer{
+    background-color: #018849;
+    border-radius: 40px;
+    padding: 15px;
+    box-shadow: 0px 3px 5px grey;
+    color: white;
+    text-align: center;
+    font-size: x-large;
+}
+
+.singleTravailContainer{
+    position: relative;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0px 3px 5px grey;
+}
+
+.remiseTitreTravailContainer{
+    background-color: #018849;
+    border-radius: 20px;
+    padding: 8px;
+    box-shadow: 0px 3px 5px grey;
+    color: white;
+    text-align: left;
+    font-size: large;
+}
+
+.detailTravailContainer{
+    padding: 25px;
+}
+
+.detail{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-left: 25px;
+}
+
+.detailNotFound{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-left: 25px;
+    color:#df1f12
+}
+
