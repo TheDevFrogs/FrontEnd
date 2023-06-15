@@ -19,19 +19,22 @@
     padding: 25px;
 }
 
+.tableauTitresColones{
+    font-size: 1.3em;
+}
+
+.tableauListeRemise{
+    width: 100%;
+}
+
+td{
+    padding-left:25px;
+
+}
+
 .informations{
     margin-top: 5px;
     margin-bottom: 5px;
-    padding-left: 25px;
-}
-
-li{
-    list-style-type: none;
-}
-
-.spanLeft{
-    font-size: medium;
-    float: right;
     padding-left: 25px;
 }
 

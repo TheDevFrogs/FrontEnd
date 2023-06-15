@@ -24,7 +24,7 @@
                 "confidential-port": 0
             });
             keycloak.init({onLoad: 'login-required'}).then(function (authenticated) {
-                alert(authenticated ? 'authenticated' : 'not authenticated');
+                //alert(authenticated ? 'authenticated' : 'not authenticated');
 
             }).catch(function () {
                 alert('failed to initialize');
