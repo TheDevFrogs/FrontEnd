@@ -1,5 +1,4 @@
 .singleCoursContainer{
-    position: relative;
     background-color: #d9d9d9;
     border-radius: 40px;
     box-shadow: 0px 3px 5px grey;
@@ -23,13 +22,8 @@
     font-size: 1.3em;
 }
 
-.tableauListeRemise{
+.tableauListeResmises{
     width: 100%;
-}
-
-td{
-    padding-left:25px;
-
 }
 
 .informations{
@@ -38,18 +32,79 @@ td{
     padding-left: 25px;
 }
 
+.first-column{
+    padding-left: 25px;
+    text-align: left;
+}
+
+td{
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+.second-column{
+    text-align: center;
+}
+
+.third-column{
+    text-align: center;
+}
+
 .material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 1,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 48
+    font-variation-settings:
+    'FILL' 1,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48
+}
+
+.iconButton{
+    vertical-align: middle;
+}
+
+.remis{
+    color: #16a085;
+    font-size: 25px;
+    vertical-align: middle;
+}
+
+.remettre{
+    vertical-align: middle;
+    font-size: 25px;
+    color: #e67e22;
+}
+
+.retard{
+    vertical-align: middle;
+    font-size: 25px;
+    color: #e67e22;
+}
+
+.nonRemis{
+    vertical-align: middle;
+    font-size: 25px;
+    color: #c0392b;
+}
+
+.prevu{
+    vertical-align: middle;
+    font-size: 25px;
+    color:#2980b9;
 }
 
 .button{
-    font-size: medium;
-    float: right;
-    padding-left: 25px;
-    background-color: #2980b9;
-    color:white;
+    background-color: #2980B9;
+    border-radius: 25px;
+    padding: 2px;
+    box-shadow: 0px 3px 5px grey;
+    color: white;
+    text-align: center;
+}
+
+.button:hover{
+    box-shadow: 0px 0px 0px grey;
+}
+
+a{
+    text-decoration: none;
 }
