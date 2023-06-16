@@ -38,5 +38,11 @@ export class SideBarContentComponent {
 
   }
 
+  getLink(name: string){
+    return name.toLowerCase().replace(/\W/g, '');
+  }
+
+
+
 
 }

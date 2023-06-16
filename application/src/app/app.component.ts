@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HomeComponent } from './home/home.component';
+import { AuthentificationService } from './authentification.service';
 
 @Component({
   selector: 'app-root',
@@ -14,4 +15,12 @@ import { HomeComponent } from './home/home.component';
 })
 export class AppComponent {
   title = 'Page';
+
+
+
+  constructor (auth : AuthentificationService){
+    auth.authenticate();
+  }
+
+
 }

@@ -6,7 +6,7 @@
         <p>Mes sessions:</p>
 
         <ul>
-            <li *ngFor="let semester of semesterList" (click)="selectedOne='s'+semester"><a [class.selected]="selectedOne=='s'+semester" href="#{{'semester'+semester}}">{{semester}}</a></li>
+            <li *ngFor="let semester of semesterList" (click)="selectedOne='s'+semester"><a [class.selected]="selectedOne=='s'+semester" href="{{getLink('s'+semester)}}">{{semester}}</a></li>
         </ul>
     </div>
 
@@ -14,7 +14,7 @@
     <div *ngIf="showTeachings">
         <p>Enseignement:</p>
         <ul>
-            <li *ngFor="let teaching of teachingList" (click)="selectedOne='t'+teaching"><a [class.selected]="selectedOne=='t'+teaching" href="#{{'teaching'+teaching}}">{{teaching}}</a></li>
+            <li *ngFor="let teaching of teachingList" (click)="selectedOne='t'+teaching"><a [class.selected]="selectedOne=='t'+teaching" href="{{getLink('t'+teaching)}}">{{teaching}}</a></li>
         </ul>
     </div>
 
