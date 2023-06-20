@@ -29,4 +29,5 @@ Ref : https://angular.io/guide/setup-local <br/>
 DANS LE DOSSIER **/application** FAIRE LA COMMANDE : <br/>
 
 **npm install** <br/>
+**npm install keycloak-angular keycloak-js** <br/>
 **ng serve --open** <br/>
