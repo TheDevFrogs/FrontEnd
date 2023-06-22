@@ -30,10 +30,10 @@ export class SideBarContentComponent {
       this.selectedOne = 'error';
     }
     else if(this.showSemester){
-      this.selectedOne = 's' + this.semesterList[0];
+      this.selectedOne = 's' + this.getLink(this.semesterList[0]);
     }
     else{
-      this.selectedOne = 't' + this.teachingList[0];
+      this.selectedOne = 't' + this.getLink(this.teachingList[0]);
     }
 
   }
