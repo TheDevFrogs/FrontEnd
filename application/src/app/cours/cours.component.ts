@@ -13,8 +13,8 @@ import { ActivatedRoute } from '@angular/router';
 export class CoursComponent {
   route: ActivatedRoute = inject(ActivatedRoute);
 
-  selectedOne = 'none';
+  selectedSession = 'none';
   constructor(){
-    this.selectedOne = String(this.route.snapshot.params['selectedOne']);
+    this.selectedSession = String(this.route.snapshot.params['selectedSession']);
   }
 }
