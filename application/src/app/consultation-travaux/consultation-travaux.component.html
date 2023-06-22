@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <div class="singleTravailContainer">
     <div class="titreTravailContainer">
         Travail pratique01
@@ -32,7 +33,18 @@
         <h3>Nouvelle remise:</h3>
         <div class=remiseTravailContainer>
             <div class="remiseTitreTravailContainer">
-                Glisser vos dossier/fichiers ici ou cliquez sur le bouton suivant:
+                <table class="tableauListeResmises">
+                    <col style="width:89%;">
+                    <col style="width:11%">
+                <td>  Glisser vos dossier/fichiers ici ou cliquez sur le bouton suivant:</td>
+                <td class="third-column">
+                    <a href="">
+                        <div class="buttonParcourir">
+                            <span style="vertical-align: middle;">Parcourir  </span><span class="iconButton material-symbols-outlined">folder_open</span>
+                        </div>
+                    </a>
+                </td>
+                </table>
             </div>
             <div class="detailTravailContainer">
                 <table class="tableauListeResmises">
@@ -46,18 +58,25 @@
                         <th>Type</th>
                         <th>Action</th>
                     </tr>
-                <td class="detail">
-                    <p>/PremiereRemise.tst</p> 
-                </td>
-                <td class="second-column">
-                    <a href="">
-                        <div class="buttonVert">
-                            <span style="vertical-align: middle;">Ajout</span><span class="iconButton material-symbols-outlined">+</span>
-                        </div>
-                    </a>
-                </td>
-            </table>
+                    <td class="detail">
+                        <p>/PremiereRemise.tst</p> 
+                    </td>
+                    <td class="second-column">/pdf</td>
+                    <td class="third-column">
+                        <a href="">
+                            <div class="buttonRetirer">
+                                <span style="vertical-align: middle;">Retirer</span><span class="iconButton material-symbols-outlined">remove</span>
+                            </div>
+                        </a>
+                    </td>
+                </table>
             </div>
         </div>
+
+        <a href="">
+            <div class="buttonRemsie">
+                <span style="vertical-align: middle;">Retirer</span><span class="iconButton material-symbols-outlined">cloud_upload</span>
+            </div>
+        </a>
     </div>
 </div>
