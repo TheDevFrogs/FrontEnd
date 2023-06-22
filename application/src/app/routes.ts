@@ -1,9 +1,20 @@
 import { Routes } from '@angular/router'
+import { CoursComponent } from './cours/cours.component';
 
 
-const routeConfig: Routes = [{
+var routeConfig: Routes = [
+    {
+        path: 'session/:selectedOne',
+        component: CoursComponent,
+        title: 'Session'
+    },
 
-},
+    {
+        path: 'enseignement/:selectedOne',
+        component: CoursComponent,
+        title: 'Session'
+    }
+
 
 
 ];

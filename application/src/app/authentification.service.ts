@@ -20,8 +20,10 @@ export class AuthentificationService {
       config: {
         url: 'http://localhost:8180/',
         realm: 'usager',
-        clientId: 'frontend'
+        clientId: 'frontend',
+        
       },
+      loadUserProfileAtStartUp: true,
       initOptions: {
         onLoad: 'login-required'
       }

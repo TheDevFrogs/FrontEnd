@@ -4,8 +4,8 @@
         <p>Mes sessions:</p>
 
         <ul>
-            <li *ngFor="let semester of semesterList" (click)="selectedOne=getLink('s'+semester)">
-                <a [class.selected]="selectedOne===getLink('s'+semester)" href="#{{getLink('s'+semester)}}">{{semester}}</a>
+            <li *ngFor="let semester of semesterList" (click)="selectedOne=getLink('s'+semester);">
+                <a [class.selected]="selectedOne==getLink('s'+semester)" [routerLink]="['/session', getLink('s'+semester)]">{{semester}}</a>
             </li>
         </ul>
     </div>
@@ -14,7 +14,7 @@
         <p>Enseignement:</p>
         <ul>
             <li *ngFor="let teaching of teachingList" (click)="selectedOne=getLink('t'+teaching)">
-                <a [class.selected]="selectedOne==getLink('t'+teaching)" href="#{{getLink('t'+teaching)}}">{{teaching}}</a>
+                <a [class.selected]="selectedOne==getLink('t'+teaching)" [routerLink]="['/enseignement', getLink('t'+teaching)]">{{teaching}}</a>
             </li>
         </ul>
     </div>

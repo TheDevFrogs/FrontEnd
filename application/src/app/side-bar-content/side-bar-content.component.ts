@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AuthedUserService } from '../authed-user.service';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-side-bar-content',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink, RouterOutlet],
   templateUrl: `./side-bar-content.component.html`,
   styleUrls: ['./side-bar-content.component.css']
 })

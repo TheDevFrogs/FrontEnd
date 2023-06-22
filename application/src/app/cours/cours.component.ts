@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-cours',
@@ -9,5 +11,10 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./cours.component.css']
 })
 export class CoursComponent {
+  route: ActivatedRoute = inject(ActivatedRoute);
 
+  selectedOne = 'none';
+  constructor(){
+    this.selectedOne = String(this.route.snapshot.params['selectedOne']);
+  }
 }
