@@ -7,39 +7,100 @@
     <div class="detailTravailContainer">
         <h3>Informations:</h3>
         <div class="detail">
-            <p> Documents fournis par l'enseignant</p>
-            <p> Type(s) de fichier(s) attendu(s): </p>
-            <p> Professeur(s) en charge: </p>
-            <p> Date limite de remise du travail:</p>
-            <p> Fermeture de la zone de dépot: </p>
+            <table class="tableauListeResmises">
+                <col style="width:89%;">
+                <col style="width:11%">
+                <tr>
+                    <p style="line-height:30px"> Documents fournis par l'enseignant</p>
+                    <td class="second-column">
+                        <a href="">
+                            <div class="buttonTelecharger">
+                                <span style="vertical-align: middle;">Télécharger</span><span class="iconButton material-symbols-outlined">download</span>
+                            </div>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:30px"> Type(s) de fichier(s) attendu(s): </p>
+            <p style="line-height:30px"> Professeur(s) en charge: </p>
+            <p style="line-height:30px"> Date limite de remise du travail:</p>
+            <p style="line-height:30px"> Fermeture de la zone de dépot: </p>
         </div>
 
-        <h3>Équipe de travail:</h3>
+        <table class="tableauListeResmises">
+            <col style="width:86%;">
+            <col style="width:7%">
+            <col style="width:7%">
+            <tr>
+                <h3>Équipe de travail:</h3>
+                <td class="second-column">
+                    <a href="">
+                        <div class="buttonAjouter">
+                            <span style="vertical-align: middle;">Ajouter</span><span class="iconButton material-symbols-outlined">add</span>
+                        </div>
+                    </a>
+                </td>
+                <td class="third-column">
+                    <a href="">
+                        <div class="buttonRetirer">
+                            <span style="vertical-align: middle;">Retirer</span><span class="iconButton material-symbols-outlined">remove</span>
+                        </div>
+                    </a>
+                </td>
+            </tr>
+        </table>
         <div class="detail">
-            <p>Étudiant Un abcd1234</p> 
-            <p>Étudiant Deux efgh5678</p>
+            <p style="line-height:30px">Étudiant Un abcd1234</p> 
+            <p style="line-height:30px">Étudiant Deux efgh5678</p>
         </div>
 
-        <h3>Copies corrigés:</h3>
-        <div class="detailNotFound">
-            <p>Aucun travail n'a été remis à l'enseignant</p>
-        </div>
+        <table class="tableauListeResmises">
+            <col style="width:86%;">
+            <col style="width:14%">
+            <tr>
+                <h3> Copies corrigés:</h3>
+                <th> Heure de remise</th>
+            </tr>
+            <tr>
+                <div class="detailNotFound">
+                    <p style="line-height:30px">Aucun travail n'a été remis à l'enseignant</p>
+                </div>
+            </tr>
+            <td class="detail"><p style="line-height:30px">travailbatard.zip</p></td>
+            <td class="second-column">2023-06-28(8:42)</td>
+        </table>
 
-        <h3>Remise antérieures:</h3>
-        <div class="detailNotFound">
-            <p>Aucun travail n'a été remis à l'enseignant</p>
-        </div>
+        <table class="tableauListeResmises">
+            <col style="width:86%;">
+            <col style="width:14%">
+            <tr>
+                <h3> Remise antérieures:</h3>
+                <th> Heure de remise</th>
+            </tr>
+            <tr>
+                <div class="detailNotFound">
+                    <p style="line-height:30px">Aucun travail n'a été remis à l'enseignant</p>
+                </div>
+            </tr>
+            <td class="detail"><p style="line-height:30px">travailbatard.zip</p></td>
+            <td class="second-column">2023-06-28(8:42)</td>
+        </table>
 
         <h3>Nouvelle remise:</h3>
         <div class=remiseTravailContainer>
             <div class="remiseTitreTravailContainer">
-                <div>  Glisser vos dossier/fichiers ici ou cliquez sur le bouton suivant:
+                <table class="tableauListeResmises">
+                    <col style="width:89%;">
+                    <col style="width:11%">
+                <td>  Glisser vos dossier/fichiers ici ou cliquez sur le bouton suivant:</td>
+                <td class="third-column">
                     <a href="">
                         <div class="buttonParcourir">
                             <span style="vertical-align: middle;">Parcourir  </span><span class="iconButton material-symbols-outlined">folder_open</span>
                         </div>
                     </a>
-                </div>
+                </td>
+                </table>
             </div>
             <div class="detailTravailContainer">
                 <table class="tableauListeResmises">
@@ -70,8 +131,24 @@
 
         <a href="">
             <div class="buttonRemsie">
-                <span style="vertical-align: middle;">Retirer</span><span class="iconButton material-symbols-outlined">cloud_upload</span>
+                <span style="vertical-align: middle;">Effectuer la remise </span><span class="iconButton material-symbols-outlined">cloud_upload</span>
             </div>
         </a>
+
+        <table class="tableauListeResmises">
+            <col style="width:86%;">
+            <col style="width:14%">
+            <tr>
+                <h3> Remises antérieures:</h3>
+                <th> Heure de remise</th>
+            </tr>
+            <tr>
+                <div class="detailNotFound">
+                    <p>Aucun travail fichier déposé.</p>
+                </div>
+            </tr>
+            <td class="detail"><p>travailbatard.zip</p></td>
+            <td class="second-column">2023-06-28(8:42)</td>
+        </table>
     </div>
 </div>
