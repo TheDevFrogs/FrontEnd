@@ -2,13 +2,15 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CoursComponent } from '../cours/cours.component';
 import { ConsultationTravauxComponent } from '../consultation-travaux/consultation-travaux.component';
+import { CoursProfComponent } from '../cours-prof/cours-prof.component';
+import { EditTravauxProfComponent } from '../edit-travaux-prof/edit-travaux-prof.component';
 import { HostListener } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-main-view',
   standalone: true,
-  imports: [CommonModule, CoursComponent, ConsultationTravauxComponent, RouterModule],
+  imports: [CommonModule, CoursComponent, CoursProfComponent, ConsultationTravauxComponent, RouterModule, EditTravauxProfComponent],
   templateUrl: `./main-view.component.html`,
   styleUrls: ['./main-view.component.css']
 })

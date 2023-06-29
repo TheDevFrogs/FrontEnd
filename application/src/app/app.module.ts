@@ -7,6 +7,8 @@ import { SideBarComponent } from './side-bar/side-bar.component';
 import { MainViewComponent } from './main-view/main-view.component';
 import { AuthedUserService } from './authed-user.service';
 import { AppRoutingModule } from './app-routing.modules';
+import { CoursProfComponent } from './cours-prof/cours-prof.component';
+import { EditTravauxProfComponent } from './edit-travaux-prof/edit-travaux-prof.component';
 
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
