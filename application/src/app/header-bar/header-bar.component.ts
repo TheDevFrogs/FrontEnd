@@ -1,3 +1,4 @@
+import { AuthedUserService } from './../authed-user.service';
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { KeycloakService } from 'keycloak-angular';
@@ -15,9 +16,25 @@ export class HeaderBarComponent implements OnInit{
   public isLoggedIn = false;
   public userProfile: KeycloakProfile | null = null;
 
-  constructor(private readonly keycloak: KeycloakService) {}
+  public userName : string;
+  private acces: AuthedUserService;
+
+  constructor(private readonly keycloak: KeycloakService, acces: AuthedUserService) {
+    this.acces = acces;
+    this.userName = "Loading...";
+  }
 
   public async ngOnInit() {
+    this.acces.getUserFullName().subscribe({
+      next: (response)=>{
+        this.userName = response.fullName;
+      },
+      error: (error)=>{
+        console.error(error);
+      }
+      
+    }
+    );
   }
 
   public login() {
