@@ -1,3 +1,4 @@
+import { KeycloakOptions } from './../../node_modules/keycloak-angular/lib/core/interfaces/keycloak-options.d';
 import { Injectable } from '@angular/core';
 import { KeycloakService } from 'keycloak-angular';
 
@@ -25,7 +26,8 @@ export class AuthentificationService {
       },
       loadUserProfileAtStartUp: true,
       initOptions: {
-        onLoad: 'login-required'
+        onLoad: 'login-required',
+        silentCheckSsoRedirectUri: window.location.origin,
       }
     });
 

@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AuthentificationService } from './authentification.service';
+import { HttpClient } from '@angular/common/http';
+
 
 @Injectable({
   providedIn: 'root'
@@ -10,11 +12,28 @@ export class AuthedUserService {
 
   constructor(keycloack : AuthentificationService) {
     this.keycloak = keycloack;
-   }
+  }
 
   getUserFullName(){
     // TODO : Implementer la requete
-    return "Username";
+
+    var fullName : string;
+
+    fullName = "User";
+
+    /*this.http.get<any>("http://localhost:8888/session/nom").subscribe({
+      next: (response)=>{
+        console.log("===========================");
+        fullName = response.fullName;
+      },
+      error: (error)=>{
+        console.error(error);
+      }
+      
+    }
+    );*/
+
+    return fullName;
   }
 
   getUserSemesters(){

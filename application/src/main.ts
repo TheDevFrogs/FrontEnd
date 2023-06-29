@@ -6,9 +6,13 @@ import { bootstrapApplication,provideProtractorTestingSupport } from '@angular/p
 import { AppComponent } from './app/app.component';
 import { provideRouter } from '@angular/router';
 import routeConfig from './app/routes';
+import { AuthedUserService } from './app/authed-user.service';
+import { AuthentificationService } from './app/authentification.service';
+import { HttpClient } from '@angular/common/http';
 
 bootstrapApplication(AppComponent,
     {providers: [
+      HttpClient,
       provideProtractorTestingSupport(),
       provideRouter(routeConfig)
     ]})
