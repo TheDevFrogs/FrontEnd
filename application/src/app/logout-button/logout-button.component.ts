@@ -18,9 +18,8 @@ export class LogoutButtonComponent {
   }
 
   logout(){
-    this.keycloak.logout("").then(() => {
-      this.keycloak.clearToken(); // the problem is with this line!!
-    });
+    console.log(this.keycloak.isLoggedIn());
+    this.keycloak.logout();
   }
 
 }

@@ -18,7 +18,7 @@ export class AuthedUserService {
   }
 
   getUserFullName(){
-    return this.http.get<any>("http://localhost:8888/session/nom");
+    return this.http.get<any>("http://localhost:8888/user/information");
   }
 
   getSemesters(){

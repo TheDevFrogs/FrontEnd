@@ -13,6 +13,7 @@ a{
     margin-bottom: 10px;
     color: black;
     vertical-align: middle;
+    cursor:pointer;
 }
 
 .iconLogout{

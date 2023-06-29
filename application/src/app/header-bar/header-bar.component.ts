@@ -27,7 +27,7 @@ export class HeaderBarComponent implements OnInit{
   public async ngOnInit() {
     this.acces.getUserFullName().subscribe({
       next: (response)=>{
-        this.userName = response.fullName;
+        this.userName = response.firstName + " " + response.lastName;
       },
       error: (error)=>{
         console.error(error);

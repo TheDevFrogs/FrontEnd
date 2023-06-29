@@ -20,9 +20,30 @@ export class SideBarContentComponent {
 
   selectedSession = 'empty';
 
+  currentUser : AuthedUserService;
+
   constructor(currentUser: AuthedUserService){
-    this.semesterList = currentUser.getUserSemesters();
-    this.teachingList = currentUser.getUserTeachings();
+    this.currentUser = currentUser;
+
+    this.semesterList = [];
+    this.teachingList = [];
+
+    this.showSemester = false;
+    this.showTeachings = false;
+
+  }
+
+  public async ngOnInit(){
+
+    this.currentUser.getSemesters().subscribe({
+      next:(response)=>{
+        this.semesterList = response.Etudiant;
+        this.teachingList = response.Enseignant;
+      },
+      error:(err)=>{
+        console.log(err);
+      }
+    });
 
     this.showSemester = this.semesterList.length > 0;
     this.showTeachings = this.teachingList.length > 0;
@@ -36,8 +57,9 @@ export class SideBarContentComponent {
     else{
       this.selectedSession = 't' + this.getLink(this.teachingList[0]);
     }
-
   }
+
+
 
 
   getLink(name: string){
