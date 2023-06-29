@@ -36,14 +36,9 @@ export class SideBarContentComponent {
     else{
       this.selectedSession = 't' + this.getLink(this.teachingList[0]);
     }
-
   }
 
   getLink(name: string){
     return name.toLowerCase().replace(/\W/g, '');
   }
-
-
-
-
 }

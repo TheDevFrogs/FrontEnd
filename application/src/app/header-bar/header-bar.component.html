@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <header class="brand-name">
     <a href="#home"><i class="material-icons">home</i></a>
-    <h2 class="userName">{{currentUserFullName}}</h2>
+    <h2 *ngIf="userProfile" class="userName">{{ userProfile.username }}</h2>
     <img class="brand-logo" src="../../assets/logo.svg" alt="logo" aria-hidden="true">
     <h2 class="faculte">Faculté de Génie</h2>
 </header>

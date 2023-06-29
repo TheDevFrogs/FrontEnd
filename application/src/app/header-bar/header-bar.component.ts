@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AuthedUserService } from '../authed-user.service';
+import { KeycloakService } from 'keycloak-angular';
+import { KeycloakProfile } from 'keycloak-js';
 
 @Component({
   selector: 'app-header-bar',
@@ -9,13 +10,23 @@ import { AuthedUserService } from '../authed-user.service';
   templateUrl: `./header-bar.component.html`,
   styleUrls: ['./header-bar.component.css']
 })
-export class HeaderBarComponent {
-    currentUserFullName: string;
+export class HeaderBarComponent implements OnInit{
 
-    constructor(currentUser : AuthedUserService){
-      this.currentUserFullName = currentUser.getUserFullName();
-    }
+  public isLoggedIn = false;
+  public userProfile: KeycloakProfile | null = null;
 
+  constructor(private readonly keycloak: KeycloakService) {}
+
+  public async ngOnInit() {
+  }
+
+  public login() {
+    this.keycloak.login();
+  }
+
+  public logout() {
+    this.keycloak.logout();
+  }
 }
 
 
