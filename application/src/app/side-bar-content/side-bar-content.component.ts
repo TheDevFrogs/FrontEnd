@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AuthedUserService } from '../authed-user.service';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-side-bar-content',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink, RouterOutlet],
   templateUrl: `./side-bar-content.component.html`,
   styleUrls: ['./side-bar-content.component.css']
 })
@@ -17,7 +18,7 @@ export class SideBarContentComponent {
   showSemester: boolean;
   showTeachings: boolean;
 
-  selectedOne = 'empty';
+  selectedSession = 'empty';
 
   constructor(currentUser: AuthedUserService){
     this.semesterList = currentUser.getUserSemesters();
@@ -27,22 +28,17 @@ export class SideBarContentComponent {
     this.showTeachings = this.teachingList.length > 0;
 
     if(!this.showSemester && !this.showTeachings){
-      this.selectedOne = 'error';
+      this.selectedSession = 'error';
     }
     else if(this.showSemester){
-      this.selectedOne = 's' + this.getLink(this.semesterList[0]);
+      this.selectedSession = 's' + this.getLink(this.semesterList[0]);
     }
     else{
-      this.selectedOne = 't' + this.getLink(this.teachingList[0]);
+      this.selectedSession = 't' + this.getLink(this.teachingList[0]);
     }
-
   }
 
   getLink(name: string){
     return name.toLowerCase().replace(/\W/g, '');
   }
-
-
-
-
 }

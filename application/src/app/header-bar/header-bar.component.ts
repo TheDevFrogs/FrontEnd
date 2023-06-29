@@ -18,14 +18,6 @@ export class HeaderBarComponent implements OnInit{
   constructor(private readonly keycloak: KeycloakService) {}
 
   public async ngOnInit() {
-    this.isLoggedIn = await this.keycloak.isLoggedIn();
-    console.log(this.isLoggedIn);
-    if (this.isLoggedIn) {
-      this.userProfile = await this.keycloak.loadUserProfile();
-    }
-    else{
-      console.log("not logged in")
-    }
   }
 
   public login() {

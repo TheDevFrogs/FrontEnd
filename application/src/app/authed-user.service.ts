@@ -1,15 +1,20 @@
 import { Injectable } from '@angular/core';
+import { AuthentificationService } from './authentification.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthedUserService {
 
-  constructor() { }
+  keycloak : AuthentificationService;
+
+  constructor(keycloack : AuthentificationService) {
+    this.keycloak = keycloack;
+   }
 
   getUserFullName(){
     // TODO : Implementer la requete
-    return 'Utilisateur';
+    return "Username";
   }
 
   getUserSemesters(){

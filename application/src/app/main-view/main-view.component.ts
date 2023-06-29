@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { CoursComponent } from '../cours/cours.component';
 import { ConsultationTravauxComponent } from '../consultation-travaux/consultation-travaux.component';
 import { HostListener } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-main-view',
   standalone: true,
-  imports: [CommonModule, CoursComponent, ConsultationTravauxComponent],
+  imports: [CommonModule, CoursComponent, ConsultationTravauxComponent, RouterModule],
   templateUrl: `./main-view.component.html`,
   styleUrls: ['./main-view.component.css']
 })
