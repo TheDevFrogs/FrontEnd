@@ -8,6 +8,7 @@ import { MainViewComponent } from './main-view/main-view.component';
 import { AuthedUserService } from './authed-user.service';
 import { AppRoutingModule } from './app-routing.modules';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { LogoutButtonComponent } from './logout-button/logout-button.component';
 
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
