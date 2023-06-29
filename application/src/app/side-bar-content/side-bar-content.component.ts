@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AuthedUserService } from '../authed-user.service';
 import { RouterLink, RouterOutlet } from '@angular/router';
@@ -36,7 +36,9 @@ export class SideBarContentComponent {
     else{
       this.selectedSession = 't' + this.getLink(this.teachingList[0]);
     }
+
   }
+
 
   getLink(name: string){
     return name.toLowerCase().replace(/\W/g, '');

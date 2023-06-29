@@ -10,31 +10,22 @@ export class AuthedUserService {
 
   keycloak : AuthentificationService;
 
-  constructor(keycloack : AuthentificationService) {
+  userName : string;
+
+  constructor(keycloack : AuthentificationService, private http : HttpClient) {
     this.keycloak = keycloack;
+    this.userName = "ok"
   }
 
   getUserFullName(){
-    // TODO : Implementer la requete
-
-    var fullName : string;
-
-    fullName = "User";
-
-    /*this.http.get<any>("http://localhost:8888/session/nom").subscribe({
-      next: (response)=>{
-        console.log("===========================");
-        fullName = response.fullName;
-      },
-      error: (error)=>{
-        console.error(error);
-      }
-      
-    }
-    );*/
-
-    return fullName;
+    return this.http.get<any>("http://localhost:8888/session/nom");
   }
+
+  getSemesters(){
+    return this.http.get<any>("http://localhost:8888/session/sessions");
+  }
+
+
 
   getUserSemesters(){
     // TODO : Implementer la requete

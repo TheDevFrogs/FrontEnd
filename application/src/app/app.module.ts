@@ -7,6 +7,7 @@ import { SideBarComponent } from './side-bar/side-bar.component';
 import { MainViewComponent } from './main-view/main-view.component';
 import { AuthedUserService } from './authed-user.service';
 import { AppRoutingModule } from './app-routing.modules';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
@@ -23,14 +24,15 @@ function initializeKeycloak(keycloak: KeycloakService) {
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, KeycloakAngularModule, HeaderBarComponent, SideBarComponent, MainViewComponent, AppRoutingModule],
+  imports: [BrowserModule, KeycloakAngularModule, HeaderBarComponent, SideBarComponent, MainViewComponent, AppRoutingModule, HttpClientModule],
   providers: [
     {
       provide: APP_INITIALIZER,
       useFactory: initializeKeycloak,
       multi: true,
       deps: [KeycloakService, AuthedUserService]
-    }
+    },
+    HttpClient
   ],
   bootstrap: [AppComponent]
 })
