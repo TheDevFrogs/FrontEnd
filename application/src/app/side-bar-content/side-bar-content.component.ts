@@ -15,8 +15,8 @@ export class SideBarContentComponent {
   semesterList: string[];
   teachingList: string[];
 
-  showSemester: boolean;
-  showTeachings: boolean;
+  showSemester: boolean | undefined;
+  showTeachings: boolean | undefined;
 
   selectedSession = 'empty';
 
@@ -31,6 +31,7 @@ export class SideBarContentComponent {
     this.showSemester = false;
     this.showTeachings = false;
 
+
   }
 
   public async ngOnInit(){
@@ -39,25 +40,30 @@ export class SideBarContentComponent {
       next:(response)=>{
         this.semesterList = response.Etudiant;
         this.teachingList = response.Enseignant;
+
+        this.showSemester = this.semesterList.length > 0;
+        this.showTeachings = this.teachingList.length > 0;
+
+        this.showSemester = true;
+        this.showTeachings = true;
+    
+        if(!this.showSemester && !this.showTeachings){
+          this.selectedSession = 'error';
+        }
+        else if(this.showSemester){
+          this.selectedSession = this.semesterList[0];
+        }
+        else{
+          this.selectedSession = this.teachingList[0];
+        }
       },
       error:(err)=>{
         console.log(err);
       }
     });
-
-    this.showSemester = this.semesterList.length > 0;
-    this.showTeachings = this.teachingList.length > 0;
-
-    if(!this.showSemester && !this.showTeachings){
-      this.selectedSession = 'error';
-    }
-    else if(this.showSemester){
-      this.selectedSession = 's' + this.getLink(this.semesterList[0]);
-    }
-    else{
-      this.selectedSession = 't' + this.getLink(this.teachingList[0]);
-    }
   }
+
+  
 
 
 
