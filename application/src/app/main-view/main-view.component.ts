@@ -11,7 +11,14 @@ import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-main-view',
   standalone: true,
-  imports: [CommonModule, CoursComponent, CoursProfComponent, ConsultationTravauxComponent, RouterModule, EditTravauxProfComponent, CorrectionRemiseComponent],
+  imports: [CommonModule, 
+            CoursComponent, 
+            CoursProfComponent, 
+            ConsultationTravauxComponent, 
+            RouterModule, 
+            EditTravauxProfComponent, 
+            CorrectionRemiseComponent
+          ],
   templateUrl: `./main-view.component.html`,
   styleUrls: ['./main-view.component.css']
 })

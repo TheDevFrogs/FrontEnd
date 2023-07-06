@@ -7,11 +7,9 @@ import { SideBarComponent } from './side-bar/side-bar.component';
 import { MainViewComponent } from './main-view/main-view.component';
 import { AuthedUserService } from './authed-user.service';
 import { AppRoutingModule } from './app-routing.modules';
-import { CoursProfComponent } from './cours-prof/cours-prof.component';
-import { EditTravauxProfComponent } from './edit-travaux-prof/edit-travaux-prof.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { LogoutButtonComponent } from './logout-button/logout-button.component';
-import { CorrectionRemiseComponent } from './correction-remise/correction-remise.component';
+import { NgxFileDropModule } from 'ngx-file-drop';
+import { DropBoxComponent } from './drop-box/drop-box.component';
 
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
@@ -27,7 +25,7 @@ function initializeKeycloak(keycloak: KeycloakService) {
 }
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, DropBoxComponent],
   imports: [
     BrowserModule, 
     KeycloakAngularModule, 
@@ -35,7 +33,8 @@ function initializeKeycloak(keycloak: KeycloakService) {
     SideBarComponent, 
     MainViewComponent, 
     AppRoutingModule, 
-    HttpClientModule],
+    HttpClientModule,
+    NgxFileDropModule],
   providers: [
     {
       provide: APP_INITIALIZER,
