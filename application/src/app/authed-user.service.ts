@@ -28,6 +28,10 @@ export class AuthedUserService {
     return this.http.get<any>(this.serverAdress + "/session/" + type + "/classes");
   }
 
+  getClassInfo(classTag : string){
+    return this.http.get<any>(this.serverAdress + "/cours/" + classTag);
+  }
+
 
 
 

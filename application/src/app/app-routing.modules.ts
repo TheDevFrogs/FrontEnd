@@ -19,10 +19,11 @@ var routes: Routes = [
   },
 
   {
-      path: 'session/:selectedSession/:selectedCours',
+      path: 'session/:selectedSession/:selectedClass',
       component: ConsultationTravauxComponent,
       title: 'Session'
   }
+
 ];
 
 @NgModule({

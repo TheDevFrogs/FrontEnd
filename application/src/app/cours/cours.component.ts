@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterLink, RouterOutlet } from '@angular/router';
 import { AuthedUserService } from '../authed-user.service';
 import { Cours } from './cours';
-import { Homework } from './homework';
+import { Homework } from '../homework';
 
 
 @Component({
@@ -28,9 +28,9 @@ export class CoursComponent {
 
     this.classList = [];
 
-    this.classList.push(new Cours("Mathématique", "GIF333", "Fred", [new Homework("Analyse", "check_circle"), new Homework("Mathematique", "check_circle")]));
-    this.classList.push(new Cours("Securite", "GI334", "Maurice", [new Homework("Analyse", "check_circle"), new Homework("Mathematique", "check_circle")]));
-    this.classList.push(new Cours("APP3", "GI234", "Roger", [new Homework("Analyse", "check_circle"), new Homework("Mathematique", "check_circle")]));
+    this.classList.push(new Cours("Mathématique", "GIF333", "Fred", [new Homework("Analyse", "check_circle", "Some"), new Homework("Mathematique", "check_circle", "Mathematique")]));
+    this.classList.push(new Cours("Securite", "GI334", "Maurice", [new Homework("Analyse", "check_circle", "Some"), new Homework("Mathematique", "check_circle", "Mathematique")]));
+    this.classList.push(new Cours("APP3", "GI234", "Roger", [new Homework("Analyse", "check_circle", "Some"), new Homework("Mathematique", "check_circle", "Math encore")]));
   }
 
   public async ngOnInit(){

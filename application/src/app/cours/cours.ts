@@ -1,4 +1,4 @@
-import { Homework } from "./homework";
+import { Homework } from "../homework";
 
 export class Cours{
     name : string;
