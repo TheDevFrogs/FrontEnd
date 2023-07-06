@@ -15,6 +15,8 @@
     font-size: x-large;
 }
 
+
+
 .remiseTravailContainer{
     background-color: white;
     border-radius: 25px;
@@ -76,19 +78,6 @@ td{
     width: 100%;
 }
 
-.buttonApercu{
-    background-color: #2980b9;
-    border-radius: 25px;
-    padding: 2px;
-    box-shadow: 0px 3px 5px grey;
-    color: white;
-    text-align: center;
-}
-
-.buttonApercu:hover{
-    box-shadow: 0px 0px 0px grey;
-}
-
 .buttonModifier{
     background-color: #e99d11;
     border-radius: 25px;
@@ -102,16 +91,34 @@ td{
     box-shadow: 0px 0px 0px grey;
 }
 
-.buttonCorriger{
-    background-color: #df1f12;
+
+.buttonEnregistrer{
+    background-color: #2980b9;
     border-radius: 25px;
-    padding: 2px;
+    padding: 8px;
     box-shadow: 0px 3px 5px grey;
     color: white;
     text-align: center;
+    font-size: 1.1em;
 }
 
-.buttonCorriger:hover{
+.buttonEnregistrer:hover{
+    box-shadow: 0px 0px 0px grey;
+}
+
+.buttonSupprimer{
+    background-color: #df1f12;
+    border-radius: 25px;
+    padding: 8px;
+    box-shadow: 0px 3px 5px grey;
+    color: white;
+    text-align: center;
+    font-size: 1.1em;
+    margin-left: 5px;
+}
+
+
+.buttonSupprimer:hover{
     box-shadow: 0px 0px 0px grey;
 }
 

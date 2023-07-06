@@ -1,23 +1,63 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<h1>Projet : Conception d'un système répartis</h1>
 <div class="singleTravailContainer">
     <div class="titreTravailContainer">
-        Projet : Conception d'un système répartis
+        Edition d'une remise
     </div>
 
     <div class="detailTravailContainer">
         <h3>Informations:</h3>
         <div class="detail">
+            <p style="line-height:30px">Nom du cours: <textarea matInput rows="1" cols="50" placeholder="Nom du travail" maxlength="150" style="resize:none;"></textarea> </p>
             <p style="line-height:30px"> Taille des équipes: de <textarea matInput rows="1" cols="2" placeholder="1" maxlength="2" style="resize:none;"></textarea> 
             à <textarea matInput rows="1" cols="2" placeholder="2" maxlength="2" style="resize:none;"></textarea> membres.</p>
-            <p>Fichier attendus (laisser vide pour tout accepter): </p>
-            <p>Date limite de remise: </p>
-            <p>Ouverture des dépots: </p>
-            <p>Fermeture des dépots: </p>
+            <table class="tableauListeResmises">
+                <col style="width:30%">
+                <col style="width:57%">
+                <col style="width:13%">
+
+                <tr>
+                    <td style="line-height:30px">Fichier attendus (laisser vide pour tout accepter): </td>
+                    <td>[liste des fichier]</td>
+                    <a href="">
+                        <div class="buttonModifier">
+                            <span style="vertical-align: middle;">Ajouter/Retirer  </span><span class="iconButton material-symbols-outlined">task_alt</span>
+                        </div>
+                    </a>
+                </tr>
+                <tr>
+                    <td style="line-height:30px">Date limite de remise: </td>
+                    <td> [date]</td>
+                    <a href="">
+                        <div class="buttonModifier">
+                            <span style="vertical-align: middle;">Choisir date </span><span class="iconButton material-symbols-outlined">calendar_month</span>
+                        </div>
+                    </a>
+                </tr>
+                <tr>
+                    <td style="line-height:30px">Ouverture des dépots: </td>
+                    <td> [date]</td>
+                    <a href="">
+                        <div class="buttonModifier">
+                            <span style="vertical-align: middle;">Choisir date </span><span class="iconButton material-symbols-outlined">calendar_month</span>
+                        </div>
+                    </a>
+                </tr>
+                <tr>
+                    <td style="line-height:30px">Fermeture des dépots: </td>
+                    <td> [date]</td>
+                    <a href="">
+                        <div class="buttonModifier">
+                            <span style="vertical-align: middle;">Choisir date </span><span class="iconButton material-symbols-outlined">calendar_month</span>
+                        </div>
+                    </a>
+                </tr>
+            </table>
         </div>
         
         <h3>Description:</h3>
         <div style="margin-bottom: 15px; margin-top: 10px;">
-            <textarea matInput rows="3" cols="50" placeholder="Description du travail." maxlength="1000" style="resize:none;"></textarea> 
+            <textarea matInput rows="4" placeholder="Description du travail." style="width:100%; font-size: 1.3em; resize:none;"></textarea> 
         </div>
         <h3>Fichiers:</h3>
         <div class=remiseTravailContainer>
@@ -61,5 +101,25 @@
                 </table>
             </div>
         </div>
+        <table class="tableauListeResmises" style="margin-top: 15px;">
+            <col style="width:13%;">
+            <col style="width:17%">
+            <col style="width:70%">
+            
+            <td class="first-column">
+                <a href="">
+                    <div class="buttonEnregistrer">
+                        <span style="vertical-align: middle;">Enregistrer</span><span class="iconButton material-symbols-outlined">save</span>
+                    </div>
+                </a>
+            </td>
+            <td class="third-column">
+                <a href="">
+                    <div class="buttonSupprimer">
+                        <span style="vertical-align: middle;">Supprimer la remise</span><span class="iconButton material-symbols-outlined">close</span>
+                    </div>
+                </a>
+            </td>
+        </table>
     </div>
 </div>

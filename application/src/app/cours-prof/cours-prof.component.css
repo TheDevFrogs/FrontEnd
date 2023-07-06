@@ -15,6 +15,10 @@
     font-size: x-large;
 }
 
+.nomTitreContainer{
+    padding: 20px;
+}
+
 .detailTravailContainer{
     padding: 25px;
 }
