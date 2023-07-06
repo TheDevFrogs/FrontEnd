@@ -1,13 +1,13 @@
-<div class="singleCoursContainer">
-    <div [routerLink]="['/session', selectedSession, 'ok']" class="titreCoursContainer">
-        Projet : Conception d'un système répartis
+<div *ngFor="let class of classList" class="singleCoursContainer">
+    <div [routerLink]="['/session', selectedSession, class.classTag]" class="titreCoursContainer">
+        {{class.name}}
     </div>
 
     <div class="infoCoursContainer">
         <h3>Informations:</h3>
         <div class="informations">
-            <p>Sigle du cours: </p>
-            <p>Professeur(s) en charge: </p>
+            <p>Sigle du cours: {{class.classTag}}</p>
+            <p>Professeur(s) en charge: {{class.teacher}}</p>
         </div>
 
          
@@ -23,8 +23,8 @@
                 <th>Status</th>
             </tr>
 
-            <tr>
-                <td class="first-column">Remise 1</td>
+            <tr *ngFor="let homework of class.homework">
+                <td class="first-column">{{homework.description}}</td>
                 <td class="second-column">
                     <a href="">
                         <div class="button">
@@ -34,7 +34,7 @@
 
                 </td>
                 <td class="third-column">
-                    <span class="remis material-symbols-outlined">check_circle</span>
+                    <span class="remis material-symbols-outlined">{{homework.status}}</span>
                 </td>
             </tr>
 

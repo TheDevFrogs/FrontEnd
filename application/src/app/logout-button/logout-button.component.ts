@@ -18,7 +18,6 @@ export class LogoutButtonComponent {
   }
 
   logout(){
-    console.log(this.keycloak.isLoggedIn());
     this.keycloak.logout();
   }
 

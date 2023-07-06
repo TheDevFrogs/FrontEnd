@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { AuthentificationService } from './authentification.service';
 import { HttpClient } from '@angular/common/http';
 
 
@@ -8,34 +7,28 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AuthedUserService {
 
-  keycloak : AuthentificationService;
-
   userName : string;
 
-  constructor(keycloack : AuthentificationService, private http : HttpClient) {
-    this.keycloak = keycloack;
+  serverAdress : string;
+
+  constructor(private http : HttpClient) {
     this.userName = "ok"
+    this.serverAdress = "http://localhost:8888";
   }
 
   getUserFullName(){
-    return this.http.get<any>("http://localhost:8888/user/information");
+    return this.http.get<any>(this.serverAdress + "/user/information");
   }
 
   getSemesters(){
-    return this.http.get<any>("http://localhost:8888/session/sessions");
+    return this.http.get<any>(this.serverAdress + "/session/sessions");
+  }
+
+  getClasses(type : string){
+    return this.http.get<any>(this.serverAdress + "/session/" + type + "/classes");
   }
 
 
-
-  getUserSemesters(){
-    // TODO : Implementer la requete
-    return ['Automne 2022','Hivers 2023','Été 2023'];
-  }
-
-  getUserTeachings(){
-    // TODO : Implementer la requete
-    return ['Automne 2022','Hivers 2023','Été 2023'];
-  }
 
 
 }

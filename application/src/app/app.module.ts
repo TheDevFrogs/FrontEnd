@@ -27,7 +27,14 @@ function initializeKeycloak(keycloak: KeycloakService) {
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, KeycloakAngularModule, HeaderBarComponent, SideBarComponent, MainViewComponent, AppRoutingModule, HttpClientModule],
+  imports: [
+    BrowserModule, 
+    KeycloakAngularModule, 
+    HeaderBarComponent, 
+    SideBarComponent, 
+    MainViewComponent, 
+    AppRoutingModule, 
+    HttpClientModule],
   providers: [
     {
       provide: APP_INITIALIZER,
