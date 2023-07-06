@@ -11,6 +11,7 @@ import { CoursProfComponent } from './cours-prof/cours-prof.component';
 import { EditTravauxProfComponent } from './edit-travaux-prof/edit-travaux-prof.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { LogoutButtonComponent } from './logout-button/logout-button.component';
+import { CorrectionRemiseComponent } from './correction-remise/correction-remise.component';
 
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>

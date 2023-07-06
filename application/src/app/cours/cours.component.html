@@ -12,28 +12,27 @@
 
          
         <table class="tableauListeResmises">
-            <col style="width:86%;">
-            <col style="width:7%">
+            <col style="width:93%;">
             <col style="width:7%">
 
 
             <tr>
                 <th class="tableauTitresColones" style="text-align: left;">Remise :</th>
-                <th>Correction</th>
+                <!--th>Correction</th-->
                 <th>Status</th>
             </tr>
 
             <tr *ngFor="let homework of class.homework">
                 <td class="hyperlien first-column"><u>{{homework.name}}</u></td>
-                <td class="second-column">
+                <!--td class="second-column">
                     <a href="">
                         <div class="button">
                             <span style="vertical-align: middle;">Obtenir</span><span class="iconButton material-symbols-outlined">download</span>
                         </div>
                     </a>
 
-                </td>
-                <td class="third-column">
+                </td-->
+                <td class="second-column">
                     <span class="remis material-symbols-outlined">{{homework.status}}</span>
                 </td>
             </tr>
