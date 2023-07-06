@@ -15,6 +15,24 @@
     font-size: x-large;
 }
 
+.remiseTravailContainer{
+    background-color: white;
+    border-radius: 25px;
+    box-shadow: 0px 3px 5px grey;
+    margin-top: 10px;
+}
+
+.remiseTitreTravailContainer{
+    background-color: #018849;
+    border-radius: 30px;
+    padding: 0px;
+    padding-left: 5px;
+    box-shadow: 0px 3px 5px grey;
+    color: white;
+    text-align: left;
+    font-size: x-large;
+}
+
 .detailTravailContainer{
     padding: 25px;
 }
@@ -97,6 +115,34 @@ td{
     box-shadow: 0px 0px 0px grey;
 }
 
+.buttonRetirer{
+    background-color: #df1f12;
+    border-radius: 25px;
+    padding: 2px;
+    box-shadow: 0px 3px 5px grey;
+    color: white;
+    text-align: center;
+}
+
+.buttonRetirer:hover{
+    box-shadow: 0px 0px 0px grey;
+}
+
+.buttonParcourir{
+    background-color: Black;
+    border-radius: 30px;
+    padding: 4px;
+    box-shadow: 0px 3px 5px grey;
+    color: white;
+    text-align: center;
+}
+
+.buttonParcourir:hover{
+    background-color: rgb(80, 80, 80);
+    box-shadow: 0px 0px 0px grey;
+}
+
+
 .material-symbols-outlined {
     font-variation-settings:
     'FILL' 1,
@@ -112,3 +158,5 @@ td{
 a{
     text-decoration: none;
 }
+
+

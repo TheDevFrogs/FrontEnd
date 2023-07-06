@@ -7,8 +7,59 @@
     <div class="detailTravailContainer">
         <h3>Informations:</h3>
         <div class="detail">
-            <p style="line-height:30px"> Taille des équipes: de <textarea matInput rows="1" cols="2" placeholder="1" maxlength="2" style="resize:none;"></textarea> </p>
+            <p style="line-height:30px"> Taille des équipes: de <textarea matInput rows="1" cols="2" placeholder="1" maxlength="2" style="resize:none;"></textarea> 
+            à <textarea matInput rows="1" cols="2" placeholder="2" maxlength="2" style="resize:none;"></textarea> membres.</p>
+            <p>Fichier attendus (laisser vide pour tout accepter): </p>
+            <p>Date limite de remise: </p>
+            <p>Ouverture des dépots: </p>
+            <p>Fermeture des dépots: </p>
         </div>
-        <h3>Remises:</h3>
+        
+        <h3>Description:</h3>
+        <div style="margin-bottom: 15px; margin-top: 10px;">
+            <textarea matInput rows="3" cols="50" placeholder="Description du travail." maxlength="1000" style="resize:none;"></textarea> 
+        </div>
+        <h3>Fichiers:</h3>
+        <div class=remiseTravailContainer>
+            <div class="remiseTitreTravailContainer">
+                <table class="tableauListeResmises">
+                    <col style="width:89%;">
+                    <col style="width:11%">
+                <td>  Glisser vos dossier/fichiers ici ou cliquez sur le bouton suivant:</td>
+                <td class="third-column">
+                    <a href="">
+                        <div class="buttonParcourir">
+                            <span style="vertical-align: middle;">Parcourir  </span><span class="iconButton material-symbols-outlined">folder_open</span>
+                        </div>
+                    </a>
+                </td>
+                </table>
+            </div>
+            <div class="detailTravailContainer">
+                <table class="tableauListeResmises">
+                    <col style="width:86%;">
+                    <col style="width:7%">
+                    <col style="width:7%">
+        
+        
+                    <tr>
+                        <th class="tableauTitresColones" style="text-align: left;">Chemin :</th>
+                        <th>Type</th>
+                        <th>Action</th>
+                    </tr>
+                    <td class="detail">
+                        <p>/PremiereRemise.tst</p> 
+                    </td>
+                    <td class="second-column">/pdf</td>
+                    <td class="third-column">
+                        <a href="">
+                            <div class="buttonRetirer">
+                                <span style="vertical-align: middle;">Retirer</span><span class="iconButton material-symbols-outlined">remove</span>
+                            </div>
+                        </a>
+                    </td>
+                </table>
+            </div>
+        </div>
     </div>
 </div>

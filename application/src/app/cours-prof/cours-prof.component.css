@@ -26,6 +26,23 @@
     text-align: left;
 }
 
+.hyperlien{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-left: 25px;
+    text-align: left;
+    color:#126bdf;
+}
+
+
+.hyperlien:hover{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-left: 25px;
+    text-align: left;
+    color:#5bbdf7;
+}
+
 .informations{
     margin-top: 5px;
     margin-bottom: 5px;
@@ -85,7 +102,7 @@ td{
 }
 
 .buttonCorriger{
-    background-color: #df1f12;
+    background-color: #e99d11;
     border-radius: 25px;
     padding: 2px;
     box-shadow: 0px 3px 5px grey;
