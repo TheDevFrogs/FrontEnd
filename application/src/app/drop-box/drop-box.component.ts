@@ -16,6 +16,10 @@ export class DropBoxComponent {
     console.log("Send...");
   }
 
+  public cancel(){
+    this.files = [];
+  }
+
   public dropped(files: NgxFileDropEntry[]) {
     this.files = files;
     

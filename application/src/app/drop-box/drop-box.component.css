@@ -37,6 +37,22 @@
     font-size: large;
     width: 150px;
     cursor: pointer;
+    float: left;
+}
+
+.buttonAnuler{
+    margin-top: 35px;
+    margin-left: 15px;
+    background-color: #df1f12;
+    border-radius: 30px;
+    padding: 6px;
+    box-shadow: 0px 3px 5px grey;
+    color: white;
+    text-align: center;
+    font-size: large;
+    width: 150px;
+    cursor: pointer;
+    float: left;
 }
 
 .material-symbols-outlined {
