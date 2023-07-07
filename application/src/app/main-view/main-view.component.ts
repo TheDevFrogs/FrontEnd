@@ -4,7 +4,6 @@ import { CoursComponent } from '../cours/cours.component';
 import { ConsultationTravauxComponent } from '../consultation-travaux/consultation-travaux.component';
 import { CoursProfComponent } from '../cours-prof/cours-prof.component';
 import { EditTravauxProfComponent } from '../edit-travaux-prof/edit-travaux-prof.component';
-import { CorrectionRemiseComponent } from '../correction-remise/correction-remise.component';
 import { HostListener } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
@@ -16,8 +15,7 @@ import { RouterModule } from '@angular/router';
             CoursProfComponent, 
             ConsultationTravauxComponent, 
             RouterModule, 
-            EditTravauxProfComponent, 
-            CorrectionRemiseComponent
+            EditTravauxProfComponent
           ],
   templateUrl: `./main-view.component.html`,
   styleUrls: ['./main-view.component.css']

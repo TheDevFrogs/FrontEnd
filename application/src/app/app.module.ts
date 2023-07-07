@@ -9,7 +9,6 @@ import { AuthedUserService } from './authed-user.service';
 import { AppRoutingModule } from './app-routing.modules';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgxFileDropModule } from 'ngx-file-drop';
-import { DropBoxComponent } from './drop-box/drop-box.component';
 
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
@@ -25,7 +24,7 @@ function initializeKeycloak(keycloak: KeycloakService) {
 }
 
 @NgModule({
-  declarations: [AppComponent, DropBoxComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule, 
     KeycloakAngularModule, 
@@ -44,6 +43,7 @@ function initializeKeycloak(keycloak: KeycloakService) {
     },
     HttpClient
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: []
 })
 export class AppModule {}

@@ -3,11 +3,12 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterLink, RouterOutlet } from '@angular/router';
 import { AuthedUserService } from '../authed-user.service';
+import { DropBoxComponent } from '../drop-box/drop-box.component';
 
 @Component({
   selector: 'app-consultation-travaux',
   standalone: true,
-  imports: [CommonModule, RouterLink, RouterOutlet],
+  imports: [CommonModule, RouterLink, RouterOutlet, DropBoxComponent],
   templateUrl: `./consultation-travaux.component.html`,
   styleUrls: ['./consultation-travaux.component.css']
 })
