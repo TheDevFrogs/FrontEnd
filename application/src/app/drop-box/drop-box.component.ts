@@ -21,7 +21,7 @@ export class DropBoxComponent {
   }
 
   public dropped(files: NgxFileDropEntry[]) {
-    this.files = files;
+    this.files = this.files.concat(files);
     
     for (const droppedFile of files) {
 
