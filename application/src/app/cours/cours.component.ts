@@ -1,9 +1,9 @@
+import { Homework } from './../homework';
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute, RouterLink, RouterOutlet } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { AuthedUserService } from '../authed-user.service';
 import { Cours } from './cours';
-import { Homework } from '../homework';
 
 
 @Component({
@@ -15,38 +15,76 @@ import { Homework } from '../homework';
 })
 export class CoursComponent {
   route: ActivatedRoute = inject(ActivatedRoute);
+  router : Router;
+
+  currentFullRoute = "none";
 
   selectedSession = 'none';
+  sessionID = "-1";
   semester = false;
 
   classList : Cours[];
 
   currentUser: AuthedUserService;
 
-  constructor(currentUser: AuthedUserService){
+  constructor(currentUser: AuthedUserService, router : Router){
     this.currentUser = currentUser;
 
-    this.classList = [];
+    this.router = router;
 
-    this.classList.push(new Cours("Mathématique", "GIF333", "Fred", [new Homework("Analyse", "check_circle", "Some"), new Homework("Mathematique", "check_circle", "Mathematique")]));
-    this.classList.push(new Cours("Securite", "GI334", "Maurice", [new Homework("Analyse", "check_circle", "Some"), new Homework("Mathematique", "check_circle", "Mathematique")]));
-    this.classList.push(new Cours("APP3", "GI234", "Roger", [new Homework("Analyse", "check_circle", "Some"), new Homework("Mathematique", "check_circle", "Math encore")]));
+    this.router.events.subscribe({
+      next:()=>{
+        this.ngOnInit();
+      }
+    });
+
+
+    /*currentUser.getClasses("1").subscribe({
+      next:
+    });*/
+
+    this.classList = [];
   }
 
   public async ngOnInit(){
 
+    if(this.router.url === this.currentFullRoute){
+      return;
+    }
+
+    var newClassList : Cours[];
+
+    newClassList = [];
+
+    this.currentFullRoute = this.router.url;
+
     this.selectedSession = String(this.route.snapshot.params['selectedSession']);
+    this.sessionID = String(this.route.snapshot.params['sessionID'])
     this.semester = this.route.snapshot.url[0].path === "session";
 
-    this.currentUser.getClasses(this.route.snapshot.url[0].path).subscribe({
+    this.currentUser.getClasses(this.sessionID, this.semester ? "1" : "2").subscribe({
       next:(response)=>{
         if(this.semester){
+          for(let i = 0; i < response.length; i++){
+            var homeworks : Homework[];
+            homeworks = [];
 
+            if(response[i].assigments != null){
+              for(let j = 0; j < response[i].assigments.length; j++){
+                homeworks.push(new Homework(response[i].assigments[j].name, this.getIcon(response[i].assigments[j].status), response[i].assigments[j].name));
+              }
+            }
+
+            newClassList.push(new Cours(response[i].name, response[i].classTag, response[i].teachers[0].first_name + " " + response[i].teachers[0].last_name, homeworks))
+
+          }
          
         }
         else{
     
         }
+
+        this.classList = newClassList;
       },
       error:(err)=>{
         console.log(err);
@@ -57,7 +95,24 @@ export class CoursComponent {
 
   }
 
+  getIcon(assingmentStatus : string){
+      if(assingmentStatus === "scheduled"){
+        return "event";
+      }
+      else if(assingmentStatus === "todo"){
+        return "hourglass_empty";
+      }
+      else if(assingmentStatus === "handed"){
+        return "check_circle";
+      }
+      else if(assingmentStatus === "late"){
+        return "error";
+      }
+      else{
+        return "cancel";
+      }
 
+  }
 
 
 }

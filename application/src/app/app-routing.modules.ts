@@ -7,19 +7,19 @@ import { ConsultationTravauxComponent } from './consultation-travaux/consultatio
 
 var routes: Routes = [
   {
-      path: 'session/:selectedSession',
+      path: 'session/:sessionID/:selectedSession',
       component: CoursComponent,
       title: 'Session'
   },
 
   {
-      path: 'enseignement/:selectedSession',
+      path: 'enseignement/:sessionID/:selectedSession',
       component: CoursComponent,
       title: 'Session'
   },
 
   {
-      path: 'session/:selectedSession/:selectedClass',
+      path: 'session/:selectedID/:sessionSession/:selectedClass',
       component: ConsultationTravauxComponent,
       title: 'Session'
   }

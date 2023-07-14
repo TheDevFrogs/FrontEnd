@@ -64,31 +64,31 @@ td{
     vertical-align: middle;
 }
 
-.remis{
+.check_circle{
     color: #16a085;
     font-size: 25px;
     vertical-align: middle;
 }
 
-.remettre{
+.hourglass_empty{
     vertical-align: middle;
     font-size: 25px;
     color: #e67e22;
 }
 
-.retard{
+.error{
     vertical-align: middle;
     font-size: 25px;
     color: #e67e22;
 }
 
-.nonRemis{
+.cancel{
     vertical-align: middle;
     font-size: 25px;
     color: #c0392b;
 }
 
-.prevu{
+.event{
     vertical-align: middle;
     font-size: 25px;
     color:#2980b9;

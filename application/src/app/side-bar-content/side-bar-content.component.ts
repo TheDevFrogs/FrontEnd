@@ -1,3 +1,4 @@
+import { EditTravauxProfComponent } from './../edit-travaux-prof/edit-travaux-prof.component';
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AuthedUserService } from '../authed-user.service';
@@ -12,8 +13,8 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 })
 export class SideBarContentComponent {
 
-  semesterList: string[];
-  teachingList: string[];
+  semesterList;
+  teachingList;
 
   showSemester: boolean | undefined;
   showTeachings: boolean | undefined;
@@ -38,6 +39,7 @@ export class SideBarContentComponent {
 
     this.currentUser.getSemesters().subscribe({
       next:(response)=>{
+
         this.semesterList = response.Etudiant;
         this.teachingList = response.Enseignant;
 
