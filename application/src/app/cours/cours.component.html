@@ -1,5 +1,5 @@
 <div *ngFor="let class of classList" class="singleCoursContainer">
-    <div [routerLink]="['/session', selectedSession, class.classTag]" class="titreCoursContainer">
+    <div [routerLink]="['/session', sessionID ,selectedSession, class.classTag]" class="titreCoursContainer">
         {{class.name}}
     </div>
 
@@ -7,7 +7,13 @@
         <h3>Informations:</h3>
         <div class="informations">
             <p>Sigle du cours: {{class.classTag}}</p>
-            <p>Professeur(s) en charge: {{class.teacher}}</p>
+            <p style="font-weight: bold;">Professeur(s) en charge</p>
+
+            <ul>
+                <li *ngFor="let teacher of class.teachers">
+                    <p>{{teacher.first_name + " " + teacher.last_name}}</p>
+                </li>
+            </ul>
         </div>
 
          
@@ -18,20 +24,12 @@
 
             <tr>
                 <th class="tableauTitresColones" style="text-align: left;">Remise :</th>
-                <!--th>Correction</th-->
                 <th>Status</th>
             </tr>
 
             <tr *ngFor="let homework of class.homework">
                 <td class="hyperlien first-column"><u>{{homework.name}}</u></td>
-                <!--td class="second-column">
-                    <a href="">
-                        <div class="button">
-                            <span style="vertical-align: middle;">Obtenir</span><span class="iconButton material-symbols-outlined">download</span>
-                        </div>
-                    </a>
 
-                </td-->
                 <td class="second-column">
                     <span [class]="homework.status" class="material-symbols-outlined">{{homework.status}}</span>
                 </td>

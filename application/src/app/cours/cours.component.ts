@@ -3,7 +3,8 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { AuthedUserService } from '../authed-user.service';
-import { Cours } from './cours';
+import { Cours } from '../cours';
+import { Teacher } from '../teacher';
 
 
 @Component({
@@ -67,7 +68,9 @@ export class CoursComponent {
         if(this.semester){
           for(let i = 0; i < response.length; i++){
             var homeworks : Homework[];
+            var teachers : Teacher[];
             homeworks = [];
+            teachers = []
 
             if(response[i].assigments != null){
               for(let j = 0; j < response[i].assigments.length; j++){
@@ -75,7 +78,13 @@ export class CoursComponent {
               }
             }
 
-            newClassList.push(new Cours(response[i].name, response[i].classTag, response[i].teachers[0].first_name + " " + response[i].teachers[0].last_name, homeworks))
+            if(response[i].teachers != null){
+              for(let j = 0; j < response[i].teachers.length; j++){
+                teachers.push(new Teacher(response[i].teachers[j].cip, response[i].teachers[j].first_name, response[i].teachers[j].last_name));
+              }
+            }
+
+            newClassList.push(new Cours(response[i].name, response[i].classTag, teachers, homeworks))
 
           }
          

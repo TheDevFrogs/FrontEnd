@@ -7,23 +7,21 @@ import { ConsultationTravauxComponent } from './consultation-travaux/consultatio
 
 var routes: Routes = [
   {
+    path: 'session/:sessionID/:selectedSession/:selectedClass',
+    component: ConsultationTravauxComponent,
+    title: 'Remise de travaux'
+  },
+  {
       path: 'session/:sessionID/:selectedSession',
       component: CoursComponent,
-      title: 'Session'
+      title: 'Remise de travaux'
   },
 
   {
       path: 'enseignement/:sessionID/:selectedSession',
       component: CoursComponent,
-      title: 'Session'
-  },
-
-  {
-      path: 'session/:selectedID/:sessionSession/:selectedClass',
-      component: ConsultationTravauxComponent,
-      title: 'Session'
+      title: 'Remise de travaux'
   }
-
 ];
 
 @NgModule({
