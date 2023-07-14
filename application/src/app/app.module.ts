@@ -9,6 +9,8 @@ import { AuthedUserService } from './authed-user.service';
 import { AppRoutingModule } from './app-routing.modules';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgxFileDropModule } from 'ngx-file-drop';
+import { MatDialogModule } from '@angular/material/dialog';
+
 
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
@@ -33,7 +35,8 @@ function initializeKeycloak(keycloak: KeycloakService) {
     MainViewComponent, 
     AppRoutingModule, 
     HttpClientModule,
-    NgxFileDropModule],
+    NgxFileDropModule,
+    MatDialogModule],
   providers: [
     {
       provide: APP_INITIALIZER,

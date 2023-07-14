@@ -9,30 +9,26 @@
         <h3>Informations:</h3>
         <div class="detail">
             <p style="line-height:30px">Nom du travail: <textarea matInput rows="1" cols="50" placeholder="Nom" maxlength="150" style="resize:none;"></textarea> </p>
-            <p style="line-height:30px"> Taille des équipes: de <textarea matInput rows="1" cols="2" placeholder="1" maxlength="2" style="resize:none;"></textarea> 
-            à <textarea matInput rows="1" cols="2" placeholder="2" maxlength="2" style="resize:none;"></textarea> membres.</p>
+            <!--p style="line-height:30px"> Taille des équipes: de <textarea matInput rows="1" cols="2" placeholder="1" maxlength="2" style="resize:none;"></textarea> 
+            à <textarea matInput rows="1" cols="2" placeholder="2" maxlength="2" style="resize:none;"></textarea> membres.</p-->
             <table class="tableauListeResmises">
                 <col style="width:30%">
                 <col style="width:57%">
                 <col style="width:13%">
 
-                <tr>
+                <!--tr>
                     <td style="line-height:30px">Fichier attendus (laisser vide pour tout accepter): </td>
                     <td>[liste des fichier]</td>
-                    <a href="">
-                        <div class="buttonModifier">
-                            <span style="vertical-align: middle;">Ajouter/Retirer  </span><span class="iconButton material-symbols-outlined">task_alt</span>
-                        </div>
-                    </a>
-                </tr>
+                    <div class="buttonModifier" (click)="openDialog()">
+                        <span style="vertical-align: middle;">Ajouter/Retirer  </span><span class="iconButton material-symbols-outlined">task_alt</span>
+                    </div>
+                </tr-->
                 <tr>
                     <td style="line-height:30px">Date limite de remise: </td>
                     <td> [date]</td>
-                    <a href="">
-                        <div class="buttonModifier">
-                            <span style="vertical-align: middle;">Choisir date </span><span class="iconButton material-symbols-outlined">calendar_month</span>
-                        </div>
-                    </a>
+                    <div class="buttonModifier">
+                        <span style="vertical-align: middle;">Choisir date </span><span class="iconButton material-symbols-outlined">calendar_month</span>
+                    </div>
                 </tr>
                 <tr>
                     <td style="line-height:30px">Ouverture des dépots: </td>
