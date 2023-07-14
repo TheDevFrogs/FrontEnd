@@ -127,3 +127,8 @@ a{
     text-align: left;
     color:#5bbdf7;
 }
+
+li{
+    list-style-type:none;
+    padding-left: 15px;
+}

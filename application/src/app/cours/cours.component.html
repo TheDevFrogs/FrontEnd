@@ -1,23 +1,19 @@
 <div *ngFor="let class of classList" class="singleCoursContainer">
     <div [routerLink]="['/session', sessionID ,selectedSession, class.classTag]" class="titreCoursContainer">
-        {{class.name}}
+        {{class.name + " (" + class.classTag + ")"}}
     </div>
 
     <div class="infoCoursContainer">
-        <h3>Informations:</h3>
-        <div class="informations">
-            <p>Sigle du cours: {{class.classTag}}</p>
-            <p style="font-weight: bold;">Professeur(s) en charge</p>
+        <p style="font-weight: bold;">Professeur(s) en charge</p>
 
-            <ul>
-                <li *ngFor="let teacher of class.teachers">
-                    <p>{{teacher.first_name + " " + teacher.last_name}}</p>
-                </li>
-            </ul>
-        </div>
+        <ul>
+            <li *ngFor="let teacher of class.teachers">
+                <p>{{teacher.first_name + " " + teacher.last_name}}</p>
+            </li>
+        </ul>
 
          
-        <table class="tableauListeResmises">
+        <table *ngIf="class.homework.length > 0" class="tableauListeResmises">
             <col style="width:93%;">
             <col style="width:7%">
 
@@ -37,6 +33,12 @@
 
 
         </table>
+
+        <div *ngIf="class.homework.length == 0">
+            <br>
+            <p style="font-weight: bold;">Aucune remise pour ce cours</p>
+        </div>
+
 
     </div>
 </div>
