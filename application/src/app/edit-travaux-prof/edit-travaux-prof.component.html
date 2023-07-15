@@ -10,7 +10,7 @@
         <div class="detail">
             <p style="line-height:30px">Nom du travail: <textarea matInput rows="1" cols="50" placeholder="Nom" maxlength="150" style="resize:none;"></textarea> </p>
 
-            
+
             <table class="tableauListeResmises">
                 <col style="width:15%">
                 <col style="width:85%">
@@ -18,9 +18,7 @@
                 <tr>
                     <td style="line-height:30px">Date limite de remise: </td>
                     <td> 
-                        <input [matDatepicker]="myDatepicker">
-                        <mat-datepicker-toggle class="iconButton material-symbols-outlined" [for]="myDatepicker"></mat-datepicker-toggle>
-                        <mat-datepicker #myDatepicker></mat-datepicker>
+                        <input [matDatepicker]="myDatepicker" type="datetime-local">
                     </td>
                 </tr>
                 <tr>
@@ -63,7 +61,7 @@
             <col style="width:70%">
             <tr>
                 <td>
-                    <div class="button buttonEnregistrer">
+                    <div (click)="enregistrer()" class="button buttonEnregistrer">
                         <span style="vertical-align: middle;">Enregistrer</span><span class="iconButton material-symbols-outlined">save</span>
                     </div>
                 </td>

@@ -6,6 +6,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule} from '@angular/material/form-field';
 import { DropBoxComponent } from '../drop-box/drop-box.component';
+import { AuthedUserService } from '../authed-user.service';
 
 
 
@@ -18,12 +19,34 @@ import { DropBoxComponent } from '../drop-box/drop-box.component';
 })
 export class EditTravauxProfComponent {
 
-  constructor (private diaglogRef : MatDialog){}
+  currentUser : AuthedUserService;
+
+  constructor (private diaglogRef : MatDialog, user : AuthedUserService){
+    this.currentUser = user;
+
+  }
   
 
   openDialog(){
     this.diaglogRef.open(PopUpComponent);
   }
 
+
+  enregistrer(){
+    //Obtenir l'information
+
+
+
+    //Verifier que l'info est ok sinon popup
+
+
+    //Requete post
+
+    
+
+
+
+
+  }
 
 }
