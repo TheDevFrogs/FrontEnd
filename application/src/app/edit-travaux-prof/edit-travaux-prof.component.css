@@ -99,6 +99,11 @@
     vertical-align: middle;
 }
 
+.iconButtonClock{
+    vertical-align: middle;
+    color: grey;
+}
+
 .button{
     cursor: pointer;
 }
