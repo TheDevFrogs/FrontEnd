@@ -1,3 +1,4 @@
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
@@ -10,6 +11,8 @@ import { AppRoutingModule } from './app-routing.modules';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgxFileDropModule } from 'ngx-file-drop';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatNativeDateModule } from '@angular/material/core';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 
@@ -37,7 +40,11 @@ function initializeKeycloak(keycloak: KeycloakService) {
     AppRoutingModule, 
     HttpClientModule,
     NgxFileDropModule,
-    MatDialogModule],
+    MatDialogModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    BrowserAnimationsModule
+    ],
   providers: [
     {
       provide: APP_INITIALIZER,
