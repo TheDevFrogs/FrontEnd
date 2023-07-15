@@ -7,13 +7,15 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule} from '@angular/material/form-field';
 import { DropBoxComponent } from '../drop-box/drop-box.component';
 import { AuthedUserService } from '../authed-user.service';
+import { MatInputModule } from '@angular/material/input';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 
 
 
 @Component({
   selector: 'app-edit-travaux-prof',
   standalone: true,
-  imports: [CommonModule, RouterLink, RouterOutlet, MatDatepickerModule, MatFormFieldModule, DropBoxComponent],
+  imports: [CommonModule, RouterLink, RouterOutlet, MatDatepickerModule, MatFormFieldModule, DropBoxComponent, MatInputModule, NgxMaterialTimepickerModule],
   templateUrl: './edit-travaux-prof.component.html',
   styleUrls: ['./edit-travaux-prof.component.css']
 })

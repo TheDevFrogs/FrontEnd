@@ -18,7 +18,8 @@
                 <tr>
                     <td style="line-height:30px">Date limite de remise: </td>
                     <td> 
-                        <input [matDatepicker]="myDatepicker" type="datetime-local">
+                        <input [ngxTimepicker]="picker">
+                        <ngx-material-timepicker #picker></ngx-material-timepicker>
                     </td>
                 </tr>
                 <tr>
@@ -30,9 +31,7 @@
                 <tr>
                     <td style="line-height:30px">Fermeture des dépots: </td>
                     <td> 
-                        <input [matDatepicker]="myDatepicker">
-                        <mat-datepicker-toggle class="iconButton material-symbols-outlined" [for]="myDatepicker"></mat-datepicker-toggle>
-                        <mat-datepicker #myDatepicker></mat-datepicker>
+                        
                     </td>
                 </tr>
             </table>
