@@ -1,10 +1,10 @@
 <div *ngFor="let class of classList" class="singleCoursContainer">
-    <div [routerLink]="['/session', sessionID ,selectedSession, class.classTag]" class="titreCoursContainer">
+    <div class="titreCoursContainer">
         {{class.name + " (" + class.classTag + ")"}}
     </div>
 
     <div class="infoCoursContainer">
-        <p style="font-weight: bold;">Professeur(s) en charge</p>
+        <p style="font-weight: bold;margin-bottom: 5px;">Professeur(s) en charge</p>
 
         <ul>
             <li *ngFor="let teacher of class.teachers">
@@ -24,7 +24,7 @@
             </tr>
 
             <tr *ngFor="let homework of class.homework">
-                <td class="hyperlien first-column"><u>{{homework.name}}</u></td>
+                <td [routerLink]="['/session', sessionID ,selectedSession, class.classTag, homework.id]" class="hyperlien first-column"><u>{{homework.name}}</u></td>
 
                 <td class="second-column">
                     <span [class]="homework.status" class="material-symbols-outlined">{{homework.status}}</span>

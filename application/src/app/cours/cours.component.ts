@@ -74,7 +74,7 @@ export class CoursComponent {
 
             if(response[i].assigments != null){
               for(let j = 0; j < response[i].assigments.length; j++){
-                homeworks.push(new Homework(response[i].assigments[j].name, this.getIcon(response[i].assigments[j].status), response[i].assigments[j].name));
+                homeworks.push(new Homework(response[i].assigments[j].name, this.getIcon(response[i].assigments[j].status), response[i].assigments[j].name, response[i].assigments[j].id_assignment));
               }
             }
 

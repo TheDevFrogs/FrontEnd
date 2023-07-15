@@ -29,8 +29,12 @@ export class AuthedUserService {
     return this.http.get<any>(this.serverAdress + "/session/classes/" + sessionId + "/" + roleID);
   }
 
-  getClassInfo(classTag : string){
-    return this.http.get<any>(this.serverAdress + "/cours/" + classTag);
+  getAssignment(assingmentID : string){
+    return this.http.get<any>(this.serverAdress + "/assignment/assignment/" + assingmentID);
+  }
+
+  getAssignmentAlternate(sessionID : string, assingmentID : string){
+    return this.http.get<any>(this.serverAdress + "/session/sessions/" + sessionID + "/" + assingmentID);
   }
 
   uploadFile(content : Blob){

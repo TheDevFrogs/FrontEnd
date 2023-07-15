@@ -7,7 +7,7 @@ import { ConsultationTravauxComponent } from './consultation-travaux/consultatio
 
 var routes: Routes = [
   {
-    path: 'session/:sessionID/:selectedSession/:selectedClass',
+    path: 'session/:sessionID/:selectedSession/:selectedClass/:assignmentID',
     component: ConsultationTravauxComponent,
     title: 'Remise de travaux'
   },
