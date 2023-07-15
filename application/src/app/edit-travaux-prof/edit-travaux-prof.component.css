@@ -102,6 +102,7 @@
 .iconButtonClock{
     vertical-align: middle;
     color: grey;
+    margin-left: 5px;
 }
 
 .button{
