@@ -15,6 +15,7 @@ import { RouterModule } from '@angular/router';
             CoursProfComponent, 
             ConsultationTravauxComponent, 
             RouterModule, 
+            EditTravauxProfComponent,
             EditTravauxProfComponent
           ],
   templateUrl: `./main-view.component.html`,

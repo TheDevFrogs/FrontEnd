@@ -56,5 +56,9 @@ export class ConsultationTravauxComponent {
 
   }
 
+  public simulatePost(){
+    this.currentUser.createAssignment();
+  }
+
 
 }

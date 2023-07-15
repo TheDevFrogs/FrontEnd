@@ -33,9 +33,22 @@ export class AuthedUserService {
     return this.http.get<any>(this.serverAdress + "/assignment/assignment/" + assingmentID);
   }
 
-  getAssignmentAlternate(sessionID : string, assingmentID : string){
-    return this.http.get<any>(this.serverAdress + "/session/sessions/" + sessionID + "/" + assingmentID);
+
+  createAssignment(){
+    const body = {
+      group_id : '2',
+      name: '', 
+      description: '', 
+      due_date: '',
+      close_date: '',
+      available_date: '',
+    }
+
+    this.http.post<any>(this.serverAdress + "/assignment/create", body);
+
+
   }
+
 
   uploadFile(content : Blob){
     const formData = new FormData();
