@@ -29,6 +29,9 @@ export class EditTravauxProfComponent {
     this.diaglogRef.open(PopUpComponent);
   }
 
+  public test(){
+    console.log("Chagned");
+  }
 
   enregistrer(){
     //Obtenir l'information

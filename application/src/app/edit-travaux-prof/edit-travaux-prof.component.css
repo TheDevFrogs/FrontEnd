@@ -15,6 +15,11 @@
     font-size: x-large;
 }
 
+input{
+    border-radius: 5px;
+    padding: 5px;
+}
+
 
 
 .remiseTravailContainer{

@@ -11,7 +11,7 @@ import { AppRoutingModule } from './app-routing.modules';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgxFileDropModule } from 'ngx-file-drop';
 import { MatDialogModule } from '@angular/material/dialog';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
 
 
 
@@ -40,7 +40,7 @@ function initializeKeycloak(keycloak: KeycloakService) {
     HttpClientModule,
     NgxFileDropModule,
     MatDialogModule,
-    BrowserAnimationsModule
+    NoopAnimationsModule
     ],
   providers: [
     {
