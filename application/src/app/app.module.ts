@@ -12,6 +12,7 @@ import { NgxFileDropModule } from 'ngx-file-drop';
 import { MatDialogModule } from '@angular/material/dialog';
 
 
+
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
     keycloak.init({
