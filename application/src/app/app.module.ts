@@ -11,10 +11,7 @@ import { AppRoutingModule } from './app-routing.modules';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgxFileDropModule } from 'ngx-file-drop';
 import { MatDialogModule } from '@angular/material/dialog';
-import { MatNativeDateModule } from '@angular/material/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
 
 
 
@@ -43,10 +40,7 @@ function initializeKeycloak(keycloak: KeycloakService) {
     HttpClientModule,
     NgxFileDropModule,
     MatDialogModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    BrowserAnimationsModule,
-    MatInputModule
+    BrowserAnimationsModule
     ],
   providers: [
     {

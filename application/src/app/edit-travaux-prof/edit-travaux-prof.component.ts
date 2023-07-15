@@ -3,19 +3,15 @@ import { CommonModule } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
 import { PopUpComponent } from '../pop-up/pop-up.component';
 import { RouterLink, RouterOutlet } from '@angular/router';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatFormFieldModule} from '@angular/material/form-field';
 import { DropBoxComponent } from '../drop-box/drop-box.component';
 import { AuthedUserService } from '../authed-user.service';
-import { MatInputModule } from '@angular/material/input';
-import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
-
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from '@danielmoncada/angular-datetime-picker';
 
 
 @Component({
   selector: 'app-edit-travaux-prof',
   standalone: true,
-  imports: [CommonModule, RouterLink, RouterOutlet, MatDatepickerModule, MatFormFieldModule, DropBoxComponent, MatInputModule, NgxMaterialTimepickerModule],
+  imports: [CommonModule, RouterLink, RouterOutlet, DropBoxComponent, OwlDateTimeModule, OwlNativeDateTimeModule],
   templateUrl: './edit-travaux-prof.component.html',
   styleUrls: ['./edit-travaux-prof.component.css']
 })
