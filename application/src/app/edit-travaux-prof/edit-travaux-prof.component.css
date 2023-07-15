@@ -105,8 +105,9 @@
 }
 
 .iconButtonClock{
+    padding-left: 5px;
     vertical-align: middle;
-    color: grey;
+    color: #2980b9;
 }
 
 .button{

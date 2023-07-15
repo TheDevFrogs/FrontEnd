@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-<h1>Projet : Conception d'un système répartis</h1>
+
 <div class="singleTravailContainer">
     <div class="titreTravailContainer">
         Edition d'un travail
@@ -8,38 +8,37 @@
     <div class="detailTravailContainer">
         <h3>Informations:</h3>
         <div class="detail">
-            <p style="line-height:30px">Nom du travail: <input class="textInput" rows="1" cols="50" placeholder="Nom" maxlength="150" style="resize:none;"></p>
-
 
             <table class="tableauListeResmises">
                 <col style="width:15%">
                 <col style="width:85%">
 
                 <tr>
+                    <td style="line-height:30px">Nom du travail: </td>
+                    <td> 
+                        <input class="textInput" rows="1" cols="50" placeholder="Nom" maxlength="150" style="resize:none;">
+                    </td>
+                </tr>
+
+                <tr>
                     <td style="line-height:30px">Date limite de remise: </td>
                     <td> 
                         <input class="textInput" [owlDateTimeTrigger]="tempsRemise" [owlDateTime]="tempsRemise" placeholder="Choisir date/temps">
-                        <owl-date-time #tempsRemise></owl-date-time><span class="iconButtonClock material-symbols-outlined">schedule</span>
-                        <input [owlDateTimeTrigger]="tempsRemise" [owlDateTime]="tempsRemise" placeholder="Choisir date/temps">
-                        <owl-date-time #tempsRemise></owl-date-time><span style="vertical-align: middle;"></span>  <span class="iconButtonClock material-symbols-outlined">schedule</span>
+                        <owl-date-time #tempsRemise></owl-date-time><span style="vertical-align: middle;"></span>  <span class="iconButtonClock material-symbols-outlined">event</span>
                     </td>
                 </tr>
                 <tr>
                     <td style="line-height:30px">Ouverture des dépots: </td>
                     <td>
                         <input class="textInput" [owlDateTimeTrigger]="tempsOuverture" [owlDateTime]="tempsOuverture" placeholder="Choisir date/temps">
-                        <owl-date-time #tempsOuverture></owl-date-time><span class="iconButtonClock material-symbols-outlined">schedule</span>
-                        <input [owlDateTimeTrigger]="tempsOuverture" [owlDateTime]="tempsOuverture" placeholder="Choisir date/temps">
-                        <owl-date-time #tempsOuverture></owl-date-time>  <span class="iconButtonClock material-symbols-outlined">schedule</span>
+                        <owl-date-time #tempsOuverture></owl-date-time>  <span class="iconButtonClock material-symbols-outlined">event</span>
                     </td>
                 </tr>
                 <tr>
                     <td style="line-height:30px">Fermeture des dépots: </td>
                     <td> 
                         <input class="textInput" [owlDateTimeTrigger]="tempsFermeture" [owlDateTime]="tempsFermeture" placeholder="Choisir date/temps">
-                        <owl-date-time #tempsFermeture></owl-date-time><span class="iconButtonClock material-symbols-outlined">schedule</span>
-                        <input [owlDateTimeTrigger]="tempsFermeture" [owlDateTime]="tempsFermeture" placeholder="Choisir date/temps">
-                        <owl-date-time #tempsFermeture></owl-date-time>  <span class="iconButtonClock material-symbols-outlined">schedule</span>
+                        <owl-date-time #tempsFermeture></owl-date-time>  <span class="iconButtonClock material-symbols-outlined">event</span>
                     </td>
                 </tr>
             </table>
@@ -47,12 +46,12 @@
         
         <h3>Description:</h3>
         <div style="margin-bottom: 15px; margin-top: 10px;">
-            <input class="textInput" rows="4" placeholder="Description du travail." style="width:100%; font-size: 1.3em; resize:none;">
+            <input class="textInput" rows="4" placeholder="Description du travail." style="width:100%; font-size: 1.3em;">
         </div>
         <h3>Fichiers:</h3>
         <div class=remiseTravailContainer>
             <div class="remiseTitreTravailContainer">
-                <p style="padding-left: 10px;">Ajoutez les fichiers associés à cette remise</p>
+                <p style="padding-left: 10px;">Ajoutez les fichiers associés ce travail</p>
             </div>
             <div class="detailTravailContainer">
                 <app-drop-box></app-drop-box>
