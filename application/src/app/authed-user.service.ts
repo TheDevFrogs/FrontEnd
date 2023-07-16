@@ -34,15 +34,15 @@ export class AuthedUserService {
   }
 
 
-  createAssignment(){
+  createAssignment(name : string, description : string, due_date : string, close_date : string, available_date : string, content: Blob){
     const body = {
       group_id : '2',
-      name: 'asdf', 
-      description: 'asdf', 
-      due_date: '2023-09-29 23:09:00',
-      close_date: '2023-09-30 23:09:00',
-      available_date: '2023-09-27 23:09:00',
-      file: "Contenant du fichier",
+      name: name, 
+      description: description, 
+      due_date: due_date,
+      close_date: close_date,
+      available_date: available_date,
+      file: content,
     }
 
     this.http.post<any>(this.serverAdress + "/assignment/create", body);

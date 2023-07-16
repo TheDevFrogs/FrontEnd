@@ -7,47 +7,51 @@
 
     <div class="detailTravailContainer">
         <h3>Informations:</h3>
-        <div class="detail">
 
-            <table class="tableauListeResmises">
-                <col style="width:15%">
-                <col style="width:85%">
+        <form [formGroup]="editForm">
+            <div class="detail">
 
-                <tr>
-                    <td style="line-height:30px">Nom du travail: </td>
-                    <td> 
-                        <input class="textInput" rows="1" cols="50" placeholder="Nom" maxlength="150" style="resize:none;">
-                    </td>
-                </tr>
+                <table class="tableauListeResmises">
+                    <col style="width:15%">
+                    <col style="width:85%">
 
-                <tr>
-                    <td style="line-height:30px">Date limite de remise: </td>
-                    <td> 
-                        <input class="textInput" [owlDateTimeTrigger]="tempsRemise" [owlDateTime]="tempsRemise" placeholder="Choisir date/temps">
-                        <owl-date-time #tempsRemise></owl-date-time><span style="vertical-align: middle;"></span>  <span class="iconButtonClock material-symbols-outlined">event</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="line-height:30px">Ouverture des dépots: </td>
-                    <td>
-                        <input class="textInput" [owlDateTimeTrigger]="tempsOuverture" [owlDateTime]="tempsOuverture" placeholder="Choisir date/temps">
-                        <owl-date-time #tempsOuverture></owl-date-time>  <span class="iconButtonClock material-symbols-outlined">event</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="line-height:30px">Fermeture des dépots: </td>
-                    <td> 
-                        <input class="textInput" [owlDateTimeTrigger]="tempsFermeture" [owlDateTime]="tempsFermeture" placeholder="Choisir date/temps">
-                        <owl-date-time #tempsFermeture></owl-date-time>  <span class="iconButtonClock material-symbols-outlined">event</span>
-                    </td>
-                </tr>
-            </table>
-        </div>
-        
-        <h3>Description:</h3>
-        <div style="margin-bottom: 15px; margin-top: 10px;">
-            <textarea class="textInput" rows="4" placeholder="Description du travail." style="width:100%; font-size: 1.3em;"></textarea>
-        </div>
+                    <tr>
+                        <td style="line-height:30px">Nom du travail: </td>
+                        <td> 
+                            <input type="text" class="textInput" rows="1" cols="50" placeholder="Nom" maxlength="150" style="resize:none;" formControlName="nom">
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td style="line-height:30px">Ouverture des dépots: </td>
+                        <td>
+                            <input class="textInput" [owlDateTimeTrigger]="tempsOuverture" [owlDateTime]="tempsOuverture" placeholder="Choisir date/temps" formControlName="dateOuverture">
+                            <owl-date-time #tempsOuverture></owl-date-time>  <span class="iconButtonClock material-symbols-outlined">event</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="line-height:30px">Date limite de remise: </td>
+                        <td> 
+                            <input class="textInput" [owlDateTimeTrigger]="tempsRemise" [owlDateTime]="tempsRemise" placeholder="Choisir date/temps" formControlName="dateLimite">
+                            <owl-date-time #tempsRemise></owl-date-time><span style="vertical-align: middle;"></span>  <span class="iconButtonClock material-symbols-outlined">event</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="line-height:30px">Fermeture des dépots: </td>
+                        <td> 
+                            <input class="textInput" [owlDateTimeTrigger]="tempsFermeture" [owlDateTime]="tempsFermeture" placeholder="Choisir date/temps" formControlName="dateFermeture">
+                            <owl-date-time #tempsFermeture></owl-date-time>  <span class="iconButtonClock material-symbols-outlined">event</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            
+            <h3>Description:</h3>
+            <div style="margin-bottom: 15px; margin-top: 10px;">
+                <textarea class="textInput" rows="6" placeholder="Description du travail." style="width:100%; font-size: 1.3em; resize: none;" formControlName="description"></textarea>
+            </div>
+
+        </form>
         <h3>Fichiers:</h3>
         <div class=remiseTravailContainer>
             <div class="remiseTitreTravailContainer">
