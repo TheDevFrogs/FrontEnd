@@ -35,19 +35,17 @@ export class AuthedUserService {
 
 
   createAssignment(name : string, description : string, due_date : string, close_date : string, available_date : string, content: Blob){
-    const body = {
-      group_id : '2',
-      name: name, 
-      description: description, 
-      due_date: due_date,
-      close_date: close_date,
-      available_date: available_date,
-      file: content,
-    }
+    const formData = new FormData();
 
-    this.http.post<any>(this.serverAdress + "/assignment/create", body);
+    formData.append("group_id", '69');
+    formData.append("name", name);
+    formData.append("description", description);
+    formData.append("due_date", due_date);
+    formData.append("close_date", close_date);
+    formData.append("available_date", available_date);
+    formData.append("file", content);
 
-
+    return this.http.post<any>(this.serverAdress + "/assignment/create", formData);
   }
 
 

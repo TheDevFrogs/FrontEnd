@@ -7,6 +7,7 @@ import { DropBoxComponent } from '../drop-box/drop-box.component';
 import { AuthedUserService } from '../authed-user.service';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from '@danielmoncada/angular-datetime-picker';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { formatDate} from '@angular/common';
 
 
 @Component({
@@ -64,14 +65,22 @@ export class EditTravauxProfComponent {
 
     //Verifier que l'info est ok sinon popup
 
+    console.log(formatDate(this.editForm.value.dateFermeture, 'yyyy-MM-dd HH:mm', 'en_us'));
 
     //Requete post
     this.currentUser.createAssignment(this.editForm.value.nom as string, 
                                       this.editForm.value.description as string, 
-                                      this.editForm.value.dateLimite.toString(), 
-                                      this.editForm.value.dateFermeture.toString(), 
-                                      this.editForm.value.dateOuverture.toString(), 
-                                      this.zippedFile);
+                                      formatDate(this.editForm.value.dateLimite, 'yyyy-MM-dd HH:mm', 'en_us'),
+                                      formatDate(this.editForm.value.dateFermeture, 'yyyy-MM-dd HH:mm', 'en_us'), 
+                                      formatDate(this.editForm.value.dateOuverture, 'yyyy-MM-dd HH:mm', 'en_us'), 
+                                      this.zippedFile).subscribe(
+    {
+      next:(response)=>{
+        console.log("OUI");
+        console.log(response);
+      }
+    
+    });
 
     console.log("OK?");
 
