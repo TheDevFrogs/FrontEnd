@@ -1,7 +1,5 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-<ngx-file-drop (onFileDrop)="dropped($event)" 
-(onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)" 
-dropZoneClassName="dropZoneStyle">
+<ngx-file-drop (onFileDrop)="dropped($event)" dropZoneClassName="dropZoneStyle">
 
     <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
         <table class="dropZoneContent">
@@ -25,7 +23,7 @@ dropZoneClassName="dropZoneStyle">
     </tr>
     <tr>
         <td>
-            <div (click)="send()" class="buttonEnvoyer">
+            <div *ngIf="enableSend" (click)="send()" class="buttonEnvoyer">
                 <span style="vertical-align: middle;">Envoyer  </span><span class="iconButton material-symbols-outlined">cloud_upload</span>
             </div>
             <div (click)="cancel()" class="buttonAnuler">

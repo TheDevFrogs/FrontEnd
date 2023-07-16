@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FileSystemFileEntry, NgxFileDropEntry, NgxFileDropModule } from 'ngx-file-drop';
 import { saveAs } from 'file-saver';
@@ -13,7 +13,14 @@ import { AuthedUserService } from '../authed-user.service';
   templateUrl: 'drop-box.component.html',
   styleUrls: ['./drop-box.component.css']
 })
-export class DropBoxComponent {
+export class DropBoxComponent{
+
+  @Input()
+  enableSend : boolean;
+
+  @Output()
+  onFileChanges = new EventEmitter<any>();
+
 
   public files: NgxFileDropEntry[] = [];
 
@@ -25,6 +32,11 @@ export class DropBoxComponent {
     this.userAuthed = user;
   }
 
+
+  ngOnInit(){
+   
+  }
+
   public send(){
     this.zipAndSend();
   }
@@ -32,7 +44,9 @@ export class DropBoxComponent {
 
   saveZip(){
     this.zip.generateAsync({type:"blob"}).then((content) => {
-      this.userAuthed.uploadFile(content);
+      var asdf = require("file-saver");
+      asdf.saveAs(content);
+      //this.userAuthed.uploadFile(content);
     });
   }
 
@@ -60,17 +74,42 @@ export class DropBoxComponent {
 
   public cancel(){
     this.files = [];
+    if(!this.enableSend){
+      this.zip = new JSZip();
+      this.notifyNewFiles();
+    }
   }
 
   public dropped(files: NgxFileDropEntry[]) {
+    
+    if(!this.enableSend){
+
+      var counter = this.files.length;
+
+      for (var droppedFile of files) {
+        // Is it a file?
+        if (droppedFile.fileEntry.isFile) {
+          const fileEntry = droppedFile.fileEntry as FileSystemFileEntry;
+            fileEntry.file((file: File) => {
+              counter++;
+              this.zip.file(file.name, file);
+              if(counter == this.files.length){
+                this.notifyNewFiles();
+              }
+          });
+        } 
+      }
+    }
+
     this.files = this.files.concat(files);
   }
 
-  public fileOver(event){
-    console.log(event);
+  notifyNewFiles(){
+
+    this.zip.generateAsync({type:"blob"}).then((content) => {
+      this.onFileChanges.emit(content);
+    });
+
   }
 
-  public fileLeave(event){
-    console.log(event);
-  }
 }

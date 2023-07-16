@@ -19,6 +19,14 @@ export class EditTravauxProfComponent {
 
   currentUser : AuthedUserService;
 
+  
+  nomTravail : string;
+  
+  descriptionTravail : string;
+  
+  zippedFile : Blob;
+
+  
   constructor (private diaglogRef : MatDialog, user : AuthedUserService){
     this.currentUser = user;
 
@@ -29,8 +37,8 @@ export class EditTravauxProfComponent {
     this.diaglogRef.open(PopUpComponent);
   }
 
-  public test(){
-    console.log("Chagned");
+  public fileChanged(content : Blob){
+    this.zippedFile = content;
   }
 
   enregistrer(){

@@ -46,7 +46,7 @@
         
         <h3>Description:</h3>
         <div style="margin-bottom: 15px; margin-top: 10px;">
-            <input class="textInput" rows="4" placeholder="Description du travail." style="width:100%; font-size: 1.3em;">
+            <textarea class="textInput" rows="4" placeholder="Description du travail." style="width:100%; font-size: 1.3em;"></textarea>
         </div>
         <h3>Fichiers:</h3>
         <div class=remiseTravailContainer>
@@ -54,7 +54,7 @@
                 <p style="padding-left: 10px;">Ajoutez les fichiers associés ce travail</p>
             </div>
             <div class="detailTravailContainer">
-                <app-drop-box></app-drop-box>
+                <app-drop-box [enableSend]="false" (onFileChanges)="fileChanged($event)"></app-drop-box>
             </div>
         </div>
 
