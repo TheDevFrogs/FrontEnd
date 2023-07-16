@@ -81,6 +81,8 @@ export class DropBoxComponent{
   }
 
   public dropped(files: NgxFileDropEntry[]) {
+
+    console.log("Parcourir");
     
     if(!this.enableSend){
 
@@ -93,7 +95,7 @@ export class DropBoxComponent{
             fileEntry.file((file: File) => {
               counter++;
               this.zip.file(file.name, file);
-              if(counter == this.files.length){
+              if(counter >= this.files.length){
                 this.notifyNewFiles();
               }
           });
