@@ -55,19 +55,17 @@ export class EditTravauxProfComponent {
   }
 
   enregistrer(){
-    //Obtenir l'information
 
+    
+    //Verifier que l'info est ok sinon popup
     if(!this.verifyInfo()){
       //Afficher in popup
       console.log("Donnes invalides");
       return;
     }
 
-    //Verifier que l'info est ok sinon popup
+    
 
-    console.log(formatDate(this.editForm.value.dateFermeture, 'yyyy-MM-dd HH:mm', 'en_us'));
-
-    //Requete post
     this.currentUser.createAssignment(this.editForm.value.nom as string, 
                                       this.editForm.value.description as string, 
                                       formatDate(this.editForm.value.dateLimite, 'yyyy-MM-dd HH:mm', 'en_us'),
@@ -76,13 +74,10 @@ export class EditTravauxProfComponent {
                                       this.zippedFile).subscribe(
     {
       next:(response)=>{
-        console.log("OUI");
         console.log(response);
       }
     
     });
-
-    console.log("OK?");
 
 
 

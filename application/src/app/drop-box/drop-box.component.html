@@ -1,15 +1,14 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-<ngx-file-drop (onFileDrop)="dropped($event)" dropZoneClassName="dropZoneStyle">
-
+<ngx-file-drop (onFileDrop)="dropped($event)" dropZoneClassName="dropZoneStyle" [showBrowseBtn]="true">
     <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
         <table class="dropZoneContent">
             <tr><th>Déposez vos fichiers ici</th></tr>
             <tr><td><br></td></tr>
-            <tr><td>
+            <!--<tr><td>
                 <div (click)="openFileSelector()" class="buttonParcourir">
                     <span style="vertical-align: middle;">Parcourir  </span><span class="iconButton material-symbols-outlined">folder_open</span>
                 </div>
-            </td></tr>
+            </td></tr>-->
         </table>
     </ng-template>
 </ngx-file-drop>
