@@ -1,4 +1,3 @@
-import { EditTravauxProfComponent } from './../edit-travaux-prof/edit-travaux-prof.component';
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AuthedUserService } from '../authed-user.service';
@@ -65,12 +64,12 @@ export class SideBarContentComponent {
     });
   }
 
-  
-
-
-
 
   getLink(name: string){
     return name.toLowerCase().replace(/\W/g, '');
   }
+
+
+
+
 }

@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { connect } from 'rxjs';
 
 
 @Injectable({
@@ -27,7 +26,7 @@ export class AuthedUserService {
   }
 
   getClasses(sessionId : string, roleID : string){
-    return this.http.get<any>(this.serverAdress + "/session/classes/" + sessionId + "/" + roleID);
+    return this.http.get<any>(this.serverAdress + "session/classes/student/sessionId=" + sessionId) ;
   }
 
   getAssignment(assingmentID : string){

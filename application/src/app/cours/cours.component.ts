@@ -65,6 +65,7 @@ export class CoursComponent {
 
     this.currentUser.getClasses(this.sessionID, this.semester ? "1" : "2").subscribe({
       next:(response)=>{
+        console.log(response);
         if(this.semester){
           for(let i = 0; i < response.length; i++){
             var homeworks : Homework[];
