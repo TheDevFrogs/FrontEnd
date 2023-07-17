@@ -6,6 +6,7 @@ import { CoursProfComponent } from '../cours-prof/cours-prof.component';
 import { EditTravauxProfComponent } from '../edit-travaux-prof/edit-travaux-prof.component';
 import { HostListener } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { CorrectionRemiseComponent } from '../correction-remise/correction-remise.component';
 
 @Component({
   selector: 'app-main-view',
@@ -16,7 +17,8 @@ import { RouterModule } from '@angular/router';
             ConsultationTravauxComponent, 
             RouterModule, 
             EditTravauxProfComponent,
-            EditTravauxProfComponent
+            EditTravauxProfComponent,
+            CorrectionRemiseComponent
           ],
   templateUrl: `./main-view.component.html`,
   styleUrls: ['./main-view.component.css']
