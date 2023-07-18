@@ -66,18 +66,32 @@
         <table class="buttonTable">
             <col style="width:15%">
             <col style="width:15%">
-            <col style="width:70%">
+            <col style="width:15%">
+            <col style="width:55%">
             <tr>
                 <td>
-                    <div (click)="enregistrer()" class="button buttonEnregistrer">
+                    <div (click)="enregistrer()" 
+                         [routerLink]="['..']" 
+                         queryParamsHandling="preserve"
+                         class="button buttonEnregistrer">
                         <span style="vertical-align: middle;">Enregistrer</span><span class="iconButton material-symbols-outlined">save</span>
                     </div>
                 </td>
-                <td> 
-                    <div class="button buttonSupprimer">
-                        <span style="vertical-align: middle;">Supprimer</span><span class="iconButton material-symbols-outlined">close</span>
+                <td>                    
+                    <div [routerLink]="['..']" 
+                         queryParamsHandling="preserve"
+                         class="button buttonSupprimer">
+                        <span style="vertical-align: middle;">Annuler</span><span class="iconButton material-symbols-outlined">close</span>
+                    </div>
+                <td *ngIf="this.eddition">
+                    <div *ngIf="this.eddition" 
+                         [routerLink]="['..']" 
+                         queryParamsHandling="preserve"
+                         (click)="supprimer()" class="button buttonSupprimer">
+                        <span style="vertical-align: middle;">Supprimer</span><span class="iconButton material-symbols-outlined">delete</span>
                     </div>
                 </td>
+                    
             </tr>
         </table>
 

@@ -34,10 +34,10 @@ export class AuthedUserService {
   }
 
 
-  createAssignment(name : string, description : string, due_date : string, close_date : string, available_date : string, content: Blob){
+  createAssignment(group_id : string, name : string, description : string, due_date : string, close_date : string, available_date : string, content: Blob){
     const formData = new FormData();
 
-    formData.append("group_id", '69');
+    formData.append("group_id", group_id);
     formData.append("name", name);
     formData.append("description", description);
     formData.append("due_date", due_date);
@@ -46,6 +46,10 @@ export class AuthedUserService {
     formData.append("file", content);
 
     return this.http.post<any>(this.serverAdress + "/assignment/create", formData);
+  }
+
+  delete(assignmentID : string){
+    return this.http.get<any>(this.serverAdress + "/assignment/delete/assignmentId=" + assignmentID);
   }
 
 

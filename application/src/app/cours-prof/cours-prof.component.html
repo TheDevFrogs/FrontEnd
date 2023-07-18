@@ -15,62 +15,42 @@
         </ul>
 
         
-        <table *ngIf="class.assigments.length > 0" class="tableauListeResmises">
+        <table class="tableauListeResmises">
             <col style="width:88%;">
             <col style="width:12%">
-
-
             <tr>
-                <th class="tableauTitresColones" style="text-align: left;">Remise :</th>
+                <th *ngIf="class.assigments.length > 0" class="tableauTitresColones" style="text-align: left;">Remise :</th>
+                <th *ngIf="class.assigments.length == 0" style="text-align: left;">Aucune remise pour ce cours</th>
                 <td class="second-column">
-                    <a href="">
-                        <div class="buttonAjouter">
-                            <span style="vertical-align: middle;">Ajouter Remise </span><span class="iconButton material-symbols-outlined">add</span>
-                        </div>
-                    </a>
+                    <div [routerLink]="['nouvelleRemise']"
+                         [queryParams]="{ sessionId : sessionID ,groupId : class.id_group, editing : false, assignmentId: '-1'}"
+                         class="button buttonAjouter">
+                        <span style="vertical-align: middle;">Ajouter Remise </span><span class="iconButton material-symbols-outlined">add</span>
+                    </div>
                 </td>
             </tr>
         </table>
         
         <ng-container *ngIf="class.assigments.length > 0">
             <table *ngFor="let assigment of class.assigments" class="tableauListeResmises">
-                <col style="width:76%;">
-                <col style="width:8%">
-                <col style="width:8%">
+                <col style="width:92%;">
                 <col style="width:8%">
                 <tr>
                     <td>
-                        <p class="hyperlien" style="line-height:30px"> <u>{{formatDateObject(assigment.due_date) + " " + assigment.name}}</u></p>
+                        <p [routerLink]="['nouvelleRemise']"
+                           [queryParams]="{ sessionId : sessionID ,groupId : class.id_group, editing : true, assignmentId: assigment.id_assignment}" 
+                           class="button hyperlien" style="line-height:30px"> 
+                           <u>{{formatDateObject(assigment.due_date) + " " + assigment.name}}</u>
+                        </p>
                     </td>
-                    <td class="second-column">
-                        <a href="">
-                            <div class="buttonApercu">
-                                <span style="vertical-align: middle;">Aperçu </span><span class="iconButton material-symbols-outlined">visibility</span>
-                            </div>
-                        </a>
-                    </td>
-                    <td class="third-column">
-                        <a href="">
-                            <div class="buttonModifier">
-                                <span style="vertical-align: middle;">Modifier </span><span class="iconButton material-symbols-outlined">edit</span>
-                            </div>
-                        </a>
-                    </td>
-                    <td class="second-column">
-                        <a href="">
-                            <div class="buttonCorriger">
-                                <span style="vertical-align: middle;">Corriger </span><span class="iconButton material-symbols-outlined">edit</span>
-                            </div>
-                        </a>
+                    <td class="button second-column">
+                        <div class="buttonCorriger">
+                            <span style="vertical-align: middle;">Corriger </span><span class="iconButton material-symbols-outlined">edit</span>
+                        </div>
                     </td>
                 </tr>
             </table>
         </ng-container>
-
-        <div *ngIf="class.assigments.length == 0">
-            <br>
-            <p style="font-weight: bold;">Aucune remise pour ce cours</p>
-        </div>
 
     </div>
 </div>

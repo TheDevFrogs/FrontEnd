@@ -1,3 +1,4 @@
+import { EditTravauxProfComponent } from './edit-travaux-prof/edit-travaux-prof.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CoursComponent } from './cours/cours.component';
@@ -22,7 +23,18 @@ var routes: Routes = [
       path: 'enseignement/:selectedSession',
       component: CoursProfComponent,
       title: 'Remise de travaux'
+  },
+  {
+      path: 'enseignement/:selectedSession/nouvelleRemise',
+      component: EditTravauxProfComponent,
+      title : 'Remise de travaux'
+  },
+  {
+    path: 'enseignement/:selectedSession/modifier',
+    component: EditTravauxProfComponent,
+    title : 'Remise de travaux'
   }
+
 ];
 
 @NgModule({

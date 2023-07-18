@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
 import { PopUpComponent } from '../pop-up/pop-up.component';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { DropBoxComponent } from '../drop-box/drop-box.component';
 import { AuthedUserService } from '../authed-user.service';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from '@danielmoncada/angular-datetime-picker';
@@ -21,6 +21,8 @@ export class EditTravauxProfComponent {
 
   currentUser : AuthedUserService;
 
+  route: ActivatedRoute = inject(ActivatedRoute);
+
   editForm = new FormGroup({
     nom : new FormControl(''),
     dateLimite : new FormControl(),
@@ -31,9 +33,41 @@ export class EditTravauxProfComponent {
   
   zippedFile : Blob;
 
+  group_id : string;
+  eddition : boolean;
+  assingmentId : string;
 
-  constructor (private diaglogRef : MatDialog, user : AuthedUserService){
+  constructor (private diaglogRef : MatDialog, user : AuthedUserService, private router: Router){
     this.currentUser = user;
+
+  }
+
+  public async ngOnInit(){
+
+
+    this.group_id = String(this.route.snapshot.queryParamMap.get('groupId'));
+    this.eddition = this.route.snapshot.queryParamMap.get('editing') === 'true';
+    this.assingmentId = String(this.route.snapshot.queryParamMap.get('assignmentId'));
+    
+    console.log(this.eddition);
+
+    if(this.eddition){
+      this.currentUser.getAssignment(this.assingmentId).subscribe({
+        next:(response)=>{
+          this.editForm.controls["nom"].setValue(response.name);
+          this.editForm.controls["dateLimite"].setValue(response.due_date);
+          this.editForm.controls["dateOuverture"].setValue(response.available_date);
+          this.editForm.controls["dateFermeture"].setValue(response.close_date);
+          this.editForm.controls["description"].setValue(response.description);
+
+
+        },
+        error:(err)=>{
+          console.log(err);
+        }
+      });
+    }
+
 
   }
   
@@ -54,6 +88,19 @@ export class EditTravauxProfComponent {
            this.editForm.value.dateLimite < this.editForm.value.dateFermeture;
   }
 
+  supprimer(){
+    this.currentUser.delete(this.assingmentId).subscribe({
+      next:(reponse)=>{
+       
+      },
+      error:(err)=>{
+       console.log(err);
+      }
+    });
+
+    console.log("Oui");
+  }
+
   enregistrer(){
 
     
@@ -66,7 +113,8 @@ export class EditTravauxProfComponent {
 
     
 
-    this.currentUser.createAssignment(this.editForm.value.nom as string, 
+    this.currentUser.createAssignment(this.group_id,
+                                      this.editForm.value.nom as string, 
                                       this.editForm.value.description as string, 
                                       formatDate(this.editForm.value.dateLimite, 'yyyy-MM-dd HH:mm', 'en_us'),
                                       formatDate(this.editForm.value.dateFermeture, 'yyyy-MM-dd HH:mm', 'en_us'), 

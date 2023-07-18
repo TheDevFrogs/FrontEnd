@@ -59,24 +59,11 @@
 }
 
 td{
-    padding-top: 0px;
-    padding-bottom: 0px;
+    padding-left: 5px;
 }
 
 .tableauTitresColones{
     font-size: 1.3em;
-}
-
-.second-column{
-    text-align: center;
-}
-
-.third-column{
-    text-align: center;
-}
-
-.fourth-column{
-    text-align: center;
 }
 
 .tableauListeResmises{
@@ -141,4 +128,8 @@ a{
 li{
     list-style-type:none;
     padding-left: 15px;
+}
+
+.button{
+    cursor: pointer;
 }
