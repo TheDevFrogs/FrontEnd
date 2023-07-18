@@ -16,7 +16,6 @@ export class ConsultationTravauxComponent {
   route : ActivatedRoute = inject(ActivatedRoute);
 
   selectedClass : string;
-  sessionID : string;
   assignmentID : string;
 
 
@@ -27,24 +26,26 @@ export class ConsultationTravauxComponent {
 
   constructor(currentUser : AuthedUserService){
     this.selectedClass = String(this.route.snapshot.params['selectedClass']);
-    this.sessionID = String(this.route.snapshot.params['sessionID'])
-    this.assignmentID = String(this.route.snapshot.params['assignmentID'])
 
 
     this.currentUser = currentUser;
 
-    this.homework = new Homework("ok", "ok", "ok", "1");
+    this.homework = new Homework("ok","ok","ok","1");
 
   }
 
   public async ngOnInit(){
     
+    this.assignmentID = String(this.route.snapshot.queryParamMap.get('assignmentId'));
+
 
     this.currentUser.getAssignment(this.assignmentID).subscribe({
       next: (response)=>{
         console.log(response);
-        //this.homework.description = response.description;
-        //this.homework.status = response.status;
+
+
+
+
       },
       error: (err)=>{
         console.log(err);

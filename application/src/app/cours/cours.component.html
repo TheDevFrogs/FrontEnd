@@ -24,7 +24,9 @@
             </tr>
 
             <tr *ngFor="let homework of class.homework">
-                <td [routerLink]="['/session', sessionID ,selectedSession, class.classTag, homework.id]" class="hyperlien first-column"><u>{{homework.name}}</u></td>
+                <td [routerLink]="['/session/' + selectedSession + '/' +  class.classTag]" 
+                    [queryParams]="{ assignmentId : homework.id}"
+                    class="hyperlien first-column"><u>{{homework.name}}</u></td>
 
                 <td class="second-column">
                     <span [class]="homework.status" class="material-symbols-outlined">{{homework.status}}</span>

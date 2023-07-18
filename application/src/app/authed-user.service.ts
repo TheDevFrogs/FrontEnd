@@ -25,12 +25,12 @@ export class AuthedUserService {
     return this.http.get<any>(this.serverAdress + "/session/sessions");
   }
 
-  getClasses(sessionId : string, roleID : string){
-    return this.http.get<any>(this.serverAdress + "session/classes/student/sessionId=" + sessionId) ;
+  getClasses(sessionId : string, type : string){
+    return this.http.get<any>(this.serverAdress + "/session/classes/" + type + "/sessionId=" + sessionId) ;
   }
 
   getAssignment(assingmentID : string){
-    return this.http.get<any>(this.serverAdress + "/assignment/assignment/" + assingmentID);
+    return this.http.get<any>(this.serverAdress + "/assignment/studentpreview/assignmentId=" + assingmentID);
   }
 
 

@@ -2,24 +2,25 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CoursComponent } from './cours/cours.component';
 import { ConsultationTravauxComponent } from './consultation-travaux/consultation-travaux.component';
+import { CoursProfComponent } from './cours-prof/cours-prof.component';
 
 
 
 var routes: Routes = [
   {
-    path: 'session/:sessionID/:selectedSession/:selectedClass/:assignmentID',
+    path: 'session/:selectedSession/:selectedClass',
     component: ConsultationTravauxComponent,
     title: 'Remise de travaux'
   },
   {
-      path: 'session/:sessionID/:selectedSession',
+      path: 'session/:selectedSession',
       component: CoursComponent,
       title: 'Remise de travaux'
   },
 
   {
-      path: 'enseignement/:sessionID/:selectedSession',
-      component: CoursComponent,
+      path: 'enseignement/:selectedSession',
+      component: CoursProfComponent,
       title: 'Remise de travaux'
   }
 ];

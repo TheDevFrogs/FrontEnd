@@ -47,7 +47,7 @@ function initializeKeycloak(keycloak: KeycloakService) {
       provide: APP_INITIALIZER,
       useFactory: initializeKeycloak,
       multi: true,
-      deps: [KeycloakService, AuthedUserService]
+      deps: [KeycloakService, AuthedUserService],
     },
     HttpClient
   ],

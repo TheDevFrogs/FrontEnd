@@ -12,6 +12,8 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 })
 export class SideBarContentComponent {
 
+  response : any;
+
   semesterList;
   teachingList;
 
@@ -38,6 +40,8 @@ export class SideBarContentComponent {
 
     this.currentUser.getSemesters().subscribe({
       next:(response)=>{
+
+        this.response = response;
 
         this.semesterList = response.Etudiant;
         this.teachingList = response.Enseignant;
@@ -69,6 +73,13 @@ export class SideBarContentComponent {
     return name.toLowerCase().replace(/\W/g, '');
   }
 
+  setSelection(type : string ,selection : string){
+    this.selectedSession = type + selection;
+  }
+
+  verifySelection(type : string, selection : string){
+    return this.selectedSession=== (type + selection);
+  }
 
 
 

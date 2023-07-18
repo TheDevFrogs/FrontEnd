@@ -4,8 +4,14 @@
         <p>Mes sessions:</p>
 
         <ul>
-            <li *ngFor="let semester of semesterList" (click)="selectedSession=getLink('s'+semester.name);">
-                <a [class.selected]="selectedSession==getLink('s'+semester.name)" [routerLink]="['/session', semester.id_session, getLink(semester.name)]">{{semester.name}}</a>
+            <li *ngFor="let semester of semesterList" 
+                (click)="setSelection('s', semester.name)">
+
+                <a [class.selected]="verifySelection('s', semester.name)" 
+                [routerLink]="['/session/' + getLink(semester.name)]"
+                [queryParams]="{ sessionId : semester.id_session}">
+                {{semester.name}}</a>
+
             </li>
         </ul>
     </div>
@@ -13,8 +19,14 @@
     <div *ngIf="showTeachings">
         <p>Enseignement:</p>
         <ul>
-            <li *ngFor="let teaching of teachingList" (click)="selectedSession=getLink('t'+teaching.name)">
-                <a [class.selected]="selectedSession==getLink('t'+teaching.name)" [routerLink]="['/enseignement', teaching.id_session, getLink(teaching.name)]">{{teaching.name}}</a>
+            <li *ngFor="let teaching of teachingList" 
+            (click)="setSelection('t', teaching.name)">
+
+                <a [class.selected]="verifySelection('t', teaching.name)" 
+                [routerLink]="['/enseignement/' + getLink(teaching.name)]"
+                [queryParams]="{ sessionId : teaching.id_session}">
+                {{teaching.name}}</a>
+            
             </li>
         </ul>
     </div>

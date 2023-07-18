@@ -22,8 +22,7 @@ export class CoursComponent {
 
   selectedSession = 'none';
   sessionID = "-1";
-  semester = false;
-
+  
   classList : Cours[];
 
   currentUser: AuthedUserService;
@@ -38,11 +37,6 @@ export class CoursComponent {
         this.ngOnInit();
       }
     });
-
-
-    /*currentUser.getClasses("1").subscribe({
-      next:
-    });*/
 
     this.classList = [];
   }
@@ -60,38 +54,33 @@ export class CoursComponent {
     this.currentFullRoute = this.router.url;
 
     this.selectedSession = String(this.route.snapshot.params['selectedSession']);
-    this.sessionID = String(this.route.snapshot.params['sessionID'])
-    this.semester = this.route.snapshot.url[0].path === "session";
+    this.sessionID = String(this.route.snapshot.queryParamMap.get('sessionId'));
 
-    this.currentUser.getClasses(this.sessionID, this.semester ? "1" : "2").subscribe({
+
+
+    this.currentUser.getClasses(this.sessionID, "student").subscribe({
       next:(response)=>{
-        console.log(response);
-        if(this.semester){
-          for(let i = 0; i < response.length; i++){
-            var homeworks : Homework[];
-            var teachers : Teacher[];
-            homeworks = [];
-            teachers = []
 
-            if(response[i].assigments != null){
-              for(let j = 0; j < response[i].assigments.length; j++){
-                homeworks.push(new Homework(response[i].assigments[j].name, this.getIcon(response[i].assigments[j].status), response[i].assigments[j].name, response[i].assigments[j].id_assignment));
-              }
+        for(let i = 0; i < response.length; i++){
+          var homeworks : Homework[];
+          var teachers : Teacher[];
+          homeworks = [];
+          teachers = []
+
+          if(response[i].assigments != null){
+            for(let j = 0; j < response[i].assigments.length; j++){
+              homeworks.push(new Homework(response[i].assigments[j].name, this.getIcon(response[i].assigments[j].status), response[i].assigments[j].name, response[i].assigments[j].id_assignment));
             }
-
-            if(response[i].teachers != null){
-              for(let j = 0; j < response[i].teachers.length; j++){
-                teachers.push(new Teacher(response[i].teachers[j].cip, response[i].teachers[j].first_name, response[i].teachers[j].last_name));
-              }
-            }
-
-            newClassList.push(new Cours(response[i].name, response[i].classTag, teachers, homeworks))
-
           }
-         
-        }
-        else{
-    
+
+          if(response[i].teachers != null){
+            for(let j = 0; j < response[i].teachers.length; j++){
+              teachers.push(new Teacher(response[i].teachers[j].cip, response[i].teachers[j].first_name, response[i].teachers[j].last_name));
+            }
+          }
+
+          newClassList.push(new Cours(response[i].name, response[i].classTag, teachers, homeworks))
+
         }
 
         this.classList = newClassList;
