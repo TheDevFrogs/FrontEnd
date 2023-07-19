@@ -1,10 +1,8 @@
-import { Homework } from './../homework';
-import { Component, inject } from '@angular/core';
+import { Component, ViewChild, inject } from '@angular/core';
 import { CommonModule, formatDate } from '@angular/common';
-import { ActivatedRoute, RouterLink, RouterOutlet } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { AuthedUserService } from '../authed-user.service';
 import { DropBoxComponent } from '../drop-box/drop-box.component';
-import { StudentAssignmentPage } from '../studentAssignmentPage';
 import { DisplayedFile } from '../displayedFile';
 
 @Component({
@@ -17,10 +15,11 @@ import { DisplayedFile } from '../displayedFile';
 export class ConsultationTravauxComponent {
   route : ActivatedRoute = inject(ActivatedRoute);
 
+  @ViewChild(DropBoxComponent)
+  private dropBox!: DropBoxComponent;
+
   selectedClass : string;
   assignmentID : string;
-
-  assignment : StudentAssignmentPage;
 
   displayAssignment : boolean;
 
@@ -28,14 +27,11 @@ export class ConsultationTravauxComponent {
 
   currentUser : AuthedUserService;
 
-  homework : Homework;
+  assignment;
 
-  constructor(currentUser : AuthedUserService){
+  constructor(currentUser : AuthedUserService, private router: Router){
     this.selectedClass = String(this.route.snapshot.params['selectedClass']);
 
-    this.assignment = new StudentAssignmentPage;
-
-    this.assignment.file = new DisplayedFile("-1", "None");
     this.displayAssignment = false;
 
     this.currentUser = currentUser;
@@ -97,7 +93,9 @@ export class ConsultationTravauxComponent {
   handInAssignment(content : Blob){
     this.currentUser.handInFile(this.assignmentID, content).subscribe({
       next:(resposne)=>{
-        //COOL
+        this.ngOnInit();
+        this.dropBox.cancel();
+        //Popup pour le user
       },
       error:(err)=>{
         console.log(err);
@@ -107,4 +105,16 @@ export class ConsultationTravauxComponent {
     });
   }
 
+
+  downloadHandedIn(id_file : string){
+    this.currentUser.downloadAssignmentFile(id_file).subscribe({
+      next:(response)=>{
+        var file = require("file-saver");
+        file.saveAs(response);
+      }
+  });
+  }
+
 }
+
+

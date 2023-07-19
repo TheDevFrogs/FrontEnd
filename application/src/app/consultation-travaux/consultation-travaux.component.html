@@ -66,9 +66,11 @@
                     <p style="line-height:30px">Aucun travail n'a été remis</p>
                 </div>
             </tr>
-            <tr *ngFor="let correction of assignment.corrected_work_files">
-                <td class="detail"><p style="line-height:30px">Travail remis</p></td>
-                <td class="second-column">{{correction.handed_date}}</td>
+            <tr *ngFor="let correction of assignment.handed_work_files">
+                <td class="detail hyperlien" (click)="downloadHandedIn(correction.id_file)">
+                    <u><p style="line-height:30px">{{correction.displayed_name}}</p></u>
+                </td>
+                <td class="second-column">{{formatDateObject(correction.handed_date)}}</td>
             </tr>
             
         </table>

@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute, Router, RouterLink, RouterOutlet } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { AuthedUserService } from '../authed-user.service';
 import { TeacherClass } from '../TeacherClass';
 import { Teacher } from '../teacher';
@@ -32,21 +32,23 @@ export class CoursProfComponent {
 
     this.router = router;
 
-    this.router.events.subscribe({
-      next:()=>{
+    this.router.events.subscribe((event)=>{
         this.ngOnInit();
       }
-    });
+    );
 
     this.classList = [];
 
   }
 
-
   public async ngOnInit(){
-    if(this.router.url === this.currentFullRoute){
+    var refresh = refresh = Boolean(this.route.snapshot.queryParamMap.get('refresh'));
+
+    if(this.router.url === this.currentFullRoute && !refresh){
       return;
     }
+
+    console.log("Update");
 
     var newClassList : TeacherClass[];
     newClassList = [];

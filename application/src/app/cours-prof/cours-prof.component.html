@@ -39,7 +39,7 @@
                     <td>
                         <p [routerLink]="['nouvelleRemise']"
                            [queryParams]="{ sessionId : sessionID ,groupId : class.id_group, editing : true, assignmentId: assigment.id_assignment}" 
-                           class="button hyperlien" style="line-height:30px"> 
+                           class="hyperlien" style="line-height:30px"> 
                            <u>{{formatDateObject(assigment.due_date) + " " + assigment.name}}</u>
                         </p>
                     </td>

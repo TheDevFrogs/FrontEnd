@@ -91,29 +91,23 @@ export class EditTravauxProfComponent {
   }
 
   supprimer(){
+    console.log("SUPRIMER");
     this.currentUser.delete(this.assingmentId).subscribe({
       next:(reponse)=>{
-       
       },
       error:(err)=>{
        console.log(err);
       }
     });
-
-    console.log("Oui");
   }
 
   enregistrer(){
-
-    
     //Verifier que l'info est ok sinon popup
     if(!this.verifyInfo()){
       //Afficher in popup
       console.log("Donnes invalides");
       return;
     }
-
-    
 
     this.currentUser.createAssignment(this.group_id,
                                       this.editForm.value.nom as string, 
@@ -128,16 +122,9 @@ export class EditTravauxProfComponent {
       }
     
     });
-
-
-
-
   }
 
   updateAssignment(){
-
-    
-
     //Verifier que l'info est ok sinon popup
     if(!this.verifyInfo()){
       //Afficher in popup
@@ -154,7 +141,7 @@ export class EditTravauxProfComponent {
                                       this.zippedFile).subscribe(
     {
       next:(response)=>{
-        console.log(response);
+        
       }
     
     });

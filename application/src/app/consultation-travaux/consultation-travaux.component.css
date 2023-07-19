@@ -176,5 +176,20 @@ a{
     text-decoration: none;
 }
 
+.hyperlien{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-left: 25px;
+    text-align: left;
+    color:#126bdf;
+    cursor: pointer;
+}
 
+.hyperlien:hover{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-left: 25px;
+    text-align: left;
+    color:#5bbdf7;
+}
 

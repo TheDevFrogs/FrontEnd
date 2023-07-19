@@ -72,7 +72,8 @@
                 <td *ngIf="!this.eddition">
                     <div (click)="enregistrer()" 
                          [routerLink]="['..']" 
-                         queryParamsHandling="preserve"
+                         [queryParams]="{refresh : true}"
+                         queryParamsHandling="merge"
                          class="button buttonEnregistrer">
                         <span style="vertical-align: middle;">Enregistrer</span><span class="iconButton material-symbols-outlined">save</span>
                     </div>
@@ -80,7 +81,8 @@
                 <td *ngIf="this.eddition">
                     <div (click)="updateAssignment()" 
                          [routerLink]="['..']" 
-                         queryParamsHandling="preserve"
+                         [queryParams]="{refresh : true}"
+                         queryParamsHandling="merge"
                          class="button buttonEnregistrer">
                         <span style="vertical-align: middle;">Mettre à jour</span><span class="iconButton material-symbols-outlined">save</span>
                     </div>
@@ -93,8 +95,9 @@
                     </div>
                 <td *ngIf="this.eddition">
                     <div *ngIf="this.eddition" 
-                         [routerLink]="['..']" 
-                         queryParamsHandling="preserve"
+                         [routerLink]="['..']"
+                         [queryParams]="{refresh : true}"
+                         queryParamsHandling="merge"
                          (click)="supprimer()" class="button buttonSupprimer">
                         <span style="vertical-align: middle;">Supprimer</span><span class="iconButton material-symbols-outlined">delete</span>
                     </div>

@@ -1,7 +1,8 @@
+import { DisplayedFile } from './displayedFile';
 
 export class AssingmentFile{
     handed_date : string;
-    constructor(handed_date : string){
-        this.handed_date = handed_date;
-    }
+    id_file:string;
+    extension:string;
+    displayed_name:string;
 }

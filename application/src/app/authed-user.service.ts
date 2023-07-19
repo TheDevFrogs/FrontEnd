@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Injectable, ɵNG_INJ_DEF } from '@angular/core';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 
 @Injectable({
@@ -38,7 +38,13 @@ export class AuthedUserService {
   }
   
   delete(assignmentID : string){
-    return this.http.get<any>(this.serverAdress + "/assignment/delete/assignmentId=" + assignmentID);
+    return this.http.delete<any>(this.serverAdress + "/assignment/delete/assignmentId=" + assignmentID);
+  }
+
+  downloadAssignmentFile(id_file : string){
+    let params = new HttpParams();
+    params = params.append("ok", "okok");
+    return this.http.get<any>(this.serverAdress + "/file/download/handedassignmentfile/fileId=" + id_file, {params: params, responseType: 'blob' as 'json'});
   }
 
   createAssignment(group_id : string, name : string, description : string, due_date : string, close_date : string, available_date : string, content: Blob){
