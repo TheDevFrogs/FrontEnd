@@ -29,10 +29,17 @@ export class AuthedUserService {
     return this.http.get<any>(this.serverAdress + "/session/classes/" + type + "/sessionId=" + sessionId) ;
   }
 
-  getAssignment(assingmentID : string){
+  getStudentAssignment(assingmentID : string){
     return this.http.get<any>(this.serverAdress + "/assignment/studentpreview/assignmentId=" + assingmentID);
   }
 
+  getTeacherAssignment(assingmentID : string){
+    return this.http.get<any>(this.serverAdress + "/assignment/teacherpreview/assignmentId=" + assingmentID);
+  }
+  
+  delete(assignmentID : string){
+    return this.http.get<any>(this.serverAdress + "/assignment/delete/assignmentId=" + assignmentID);
+  }
 
   createAssignment(group_id : string, name : string, description : string, due_date : string, close_date : string, available_date : string, content: Blob){
     const formData = new FormData();
@@ -48,20 +55,28 @@ export class AuthedUserService {
     return this.http.post<any>(this.serverAdress + "/assignment/create", formData);
   }
 
-  delete(assignmentID : string){
-    return this.http.get<any>(this.serverAdress + "/assignment/delete/assignmentId=" + assignmentID);
+  updateAssignment(id_assignment : string, name : string, description : string, due_date : string, close_date : string, available_date : string, content: Blob){
+    const formData = new FormData();
+
+    formData.append("id_assignment", id_assignment);
+    formData.append("name", name);
+    formData.append("description", description);
+    formData.append("due_date", due_date);
+    formData.append("close_date", close_date);
+    formData.append("available_date", available_date);
+    formData.append("file", content);
+
+    return this.http.post<any>(this.serverAdress + "/assignment/update", formData);
   }
 
 
-  uploadFile(content : Blob){
+  handInFile(assignmentId : string, content : Blob){
     const formData = new FormData();
 
-    formData.append("fichier", content);
+    formData.append("assignmentId", assignmentId);
+    formData.append("file", content);
 
-    this.http.post(this.serverAdress + "/", formData);
-
-
-
+    return this.http.post(this.serverAdress + "/assignment/hand", formData);
   }
 
 

@@ -49,7 +49,7 @@ export class ConsultationTravauxComponent {
     this.assignmentID = String(this.route.snapshot.queryParamMap.get('assignmentId'));
 
 
-    this.currentUser.getAssignment(this.assignmentID).subscribe({
+    this.currentUser.getStudentAssignment(this.assignmentID).subscribe({
       next: (response)=>{
         this.assignment = response;
         this.assignment.available_date = this.formatDateObject(response.available_date);
@@ -92,6 +92,19 @@ export class ConsultationTravauxComponent {
   formatDateObject(toFormat : string){
     var newDate = Date.parse(toFormat.substring(0, toFormat.length-6));
     return formatDate(newDate, 'yyyy-MM-dd HH:mm', 'en_us');
+  }
+
+  handInAssignment(content : Blob){
+    this.currentUser.handInFile(this.assignmentID, content).subscribe({
+      next:(resposne)=>{
+        //COOL
+      },
+      error:(err)=>{
+        console.log(err);
+      }
+
+
+    });
   }
 
 }

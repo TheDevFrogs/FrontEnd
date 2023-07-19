@@ -78,7 +78,7 @@
                 <p style="padding-left: 10px;">Nouvelle remise</p>
             </div>
             <div class="detailTravailContainer">
-                <app-drop-box [enableSend]="true"></app-drop-box>
+                <app-drop-box [enableSend]="true" (onFileSave)="handInAssignment($event)"></app-drop-box>
             </div>
         </div>
 

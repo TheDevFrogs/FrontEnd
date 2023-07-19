@@ -69,12 +69,20 @@
             <col style="width:15%">
             <col style="width:55%">
             <tr>
-                <td>
+                <td *ngIf="!this.eddition">
                     <div (click)="enregistrer()" 
                          [routerLink]="['..']" 
                          queryParamsHandling="preserve"
                          class="button buttonEnregistrer">
                         <span style="vertical-align: middle;">Enregistrer</span><span class="iconButton material-symbols-outlined">save</span>
+                    </div>
+                </td>
+                <td *ngIf="this.eddition">
+                    <div (click)="updateAssignment()" 
+                         [routerLink]="['..']" 
+                         queryParamsHandling="preserve"
+                         class="button buttonEnregistrer">
+                        <span style="vertical-align: middle;">Mettre à jour</span><span class="iconButton material-symbols-outlined">save</span>
                     </div>
                 </td>
                 <td>                    

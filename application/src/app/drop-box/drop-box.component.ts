@@ -21,6 +21,10 @@ export class DropBoxComponent{
   @Output()
   onFileChanges = new EventEmitter<any>();
 
+  @Output()
+  onFileSave = new EventEmitter<any>();
+
+
 
   public files: NgxFileDropEntry[] = [];
 
@@ -44,9 +48,7 @@ export class DropBoxComponent{
 
   saveZip(){
     this.zip.generateAsync({type:"blob"}).then((content) => {
-      var asdf = require("file-saver");
-      asdf.saveAs(content);
-      //this.userAuthed.uploadFile(content);
+      this.onFileSave.emit(content);
     });
   }
 
@@ -113,5 +115,7 @@ export class DropBoxComponent{
     });
 
   }
+
+
 
 }

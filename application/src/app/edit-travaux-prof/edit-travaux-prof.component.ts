@@ -1,3 +1,4 @@
+import { TeacherAssignmentPage } from './../teacherAssignmentPage';
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
@@ -39,6 +40,7 @@ export class EditTravauxProfComponent {
 
   constructor (private diaglogRef : MatDialog, user : AuthedUserService, private router: Router){
     this.currentUser = user;
+    this.zippedFile = new Blob;
 
   }
 
@@ -48,16 +50,16 @@ export class EditTravauxProfComponent {
     this.group_id = String(this.route.snapshot.queryParamMap.get('groupId'));
     this.eddition = this.route.snapshot.queryParamMap.get('editing') === 'true';
     this.assingmentId = String(this.route.snapshot.queryParamMap.get('assignmentId'));
-    
-    console.log(this.eddition);
+  
 
     if(this.eddition){
-      this.currentUser.getAssignment(this.assingmentId).subscribe({
+      this.currentUser.getTeacherAssignment(this.assingmentId).subscribe({
         next:(response)=>{
+
           this.editForm.controls["nom"].setValue(response.name);
-          this.editForm.controls["dateLimite"].setValue(response.due_date);
-          this.editForm.controls["dateOuverture"].setValue(response.available_date);
-          this.editForm.controls["dateFermeture"].setValue(response.close_date);
+          this.editForm.controls["dateLimite"].setValue(this.getDateFromString(response.due_date));
+          this.editForm.controls["dateOuverture"].setValue(this.getDateFromString(response.available_date));
+          this.editForm.controls["dateFermeture"].setValue(this.getDateFromString(response.close_date));
           this.editForm.controls["description"].setValue(response.description);
 
 
@@ -85,7 +87,7 @@ export class EditTravauxProfComponent {
            this.editForm.value.description !== "" &&
            this.editForm.value.dateFermeture > this.editForm.value.dateOuverture &&
            this.editForm.value.dateLimite > this.editForm.value.dateOuverture &&
-           this.editForm.value.dateLimite < this.editForm.value.dateFermeture;
+           this.editForm.value.dateLimite <= this.editForm.value.dateFermeture;
   }
 
   supprimer(){
@@ -130,6 +132,37 @@ export class EditTravauxProfComponent {
 
 
 
+  }
+
+  updateAssignment(){
+
+    
+
+    //Verifier que l'info est ok sinon popup
+    if(!this.verifyInfo()){
+      //Afficher in popup
+      console.log("Donnes invalides");
+      return;
+    }
+
+    this.currentUser.updateAssignment(this.assingmentId,
+                                      this.editForm.value.nom as string, 
+                                      this.editForm.value.description as string, 
+                                      formatDate(this.editForm.value.dateLimite, 'yyyy-MM-dd HH:mm', 'en_us'),
+                                      formatDate(this.editForm.value.dateFermeture, 'yyyy-MM-dd HH:mm', 'en_us'), 
+                                      formatDate(this.editForm.value.dateOuverture, 'yyyy-MM-dd HH:mm', 'en_us'), 
+                                      this.zippedFile).subscribe(
+    {
+      next:(response)=>{
+        console.log(response);
+      }
+    
+    });
+  }
+
+  getDateFromString(toFormat : string){
+    var newDate = Date.parse(toFormat.substring(0, toFormat.length-6));
+    return new Date(newDate);
   }
 
 }
