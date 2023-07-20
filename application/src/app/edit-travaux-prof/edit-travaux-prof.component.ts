@@ -134,9 +134,9 @@ export class EditTravauxProfComponent {
     this.currentUser.updateAssignment(this.assingmentId,
                                       this.editForm.value.nom as string, 
                                       this.editForm.value.description as string, 
-                                      formatDate(this.editForm.value.dateLimite, 'yyyy-MM-dd HH:mm', 'en_us'),
-                                      formatDate(this.editForm.value.dateFermeture, 'yyyy-MM-dd HH:mm', 'en_us'), 
-                                      formatDate(this.editForm.value.dateOuverture, 'yyyy-MM-dd HH:mm', 'en_us'), 
+                                      formatDate(this.editForm.value.dateLimite, 'yyyy-MM-dd HH:mm', 'en_us', '+0400'),
+                                      formatDate(this.editForm.value.dateFermeture, 'yyyy-MM-dd HH:mm', 'en_us', '+0400'), 
+                                      formatDate(this.editForm.value.dateOuverture, 'yyyy-MM-dd HH:mm', 'en_us', '+0400'), 
                                       this.zippedFile).subscribe(
     {
       next:(response)=>{
