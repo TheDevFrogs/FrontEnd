@@ -3,7 +3,6 @@ import { CommonModule, formatDate } from '@angular/common';
 import { ActivatedRoute, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { AuthedUserService } from '../authed-user.service';
 import { DropBoxComponent } from '../drop-box/drop-box.component';
-import { DisplayedFile } from '../displayedFile';
 
 @Component({
   selector: 'app-consultation-travaux',
@@ -48,34 +47,15 @@ export class ConsultationTravauxComponent {
     this.currentUser.getStudentAssignment(this.assignmentID).subscribe({
       next: (response)=>{
         this.assignment = response;
-        this.assignment.available_date = this.formatDateObject(response.available_date);
-        this.assignment.due_date = this.formatDateObject(response.due_date);
-        this.assignment.close_date = this.formatDateObject(response.close_date);
-
-        var closeDate = new Date(Date.parse(this.assignment.close_date.substring(0, this.assignment.close_date.length-6)));
-        var currentDate = new Date();
-
-        if(currentDate < closeDate){
-          this.displayFileDrop = true;
-        }
-
-        if(!response['handed_work_files']){
-          this.assignment.handed_work_files = [];
-        }
-
-        if(!response['corrected_work_files']){
-          this.assignment.corrected_work_files = [];
-        }
 
         if(response.file.id_file != 0){
           this.displayAssignment = true;
         }
+        
+        var currentDate = new Date();
 
-        if(response['file']){
-          if(response.file.file_name != undefined){
-            this.assignment.file = new DisplayedFile(response.file.id_file, response.file.file_name);
-            this.displayAssignment = true;
-          }
+        if(currentDate < new Date(Date.parse(response.due_date.substring(0, response.due_date.length-6)))){
+          this.displayFileDrop = true;
         }
 
       },
@@ -91,7 +71,7 @@ export class ConsultationTravauxComponent {
 
   formatDateObject(toFormat : string){
     var newDate = Date.parse(toFormat.substring(0, toFormat.length-6));
-    return formatDate(newDate, 'yyyy-MM-dd HH:mm', 'en_us');
+    return formatDate(newDate, 'yyyy-MM-dd HH:mm', 'en_us', '+0400');
   }
 
   handInAssignment(content : Blob){

@@ -64,7 +64,7 @@ export class CoursProfComponent {
 
   formatDateObject(toFormat : string){
     var newDate = Date.parse(toFormat.substring(0, toFormat.length-6));
-    return formatDate(newDate, 'yyyy-MM-dd HH:mm', 'en_us');
+    return formatDate(newDate, 'yyyy-MM-dd HH:mm', 'en_us', '+0400');
   }
 
 

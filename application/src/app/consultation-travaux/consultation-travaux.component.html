@@ -7,15 +7,41 @@
     <div class="detailTravailContainer">
         <h3>Informations:</h3>
         <div class="detail">
-            <p style="line-height:30px"> Ouverture de la remise: {{assignment.available_date}}</p>
-            <p style="line-height:30px"> Date limite de remise du travail: {{assignment.due_date}}</p>
-            <p style="line-height:30px"> Fermeture de la zone de dépot: {{assignment.close_date}}</p>
+            <table>
+                <col style="width:45%;">
+                <col style="width:55%">
+
+                <tr>
+                    <td>
+                        <p style="line-height:30px"> Ouverture de la remise:</p>
+                    </td>
+                    <td style="padding-left: 50px;">
+                        {{formatDateObject(assignment.available_date)}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p style="line-height:30px"> Date limite de remise du travail: </p>
+                    </td>
+                    <td style="padding-left: 50px;">
+                        {{formatDateObject(assignment.due_date)}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p style="line-height:30px"> Fermeture de la zone de dépot: </p>
+                    </td>
+                    <td style="padding-left: 50px;">
+                        {{formatDateObject(assignment.close_date)}}
+                    </td>
+                </tr>
+            </table>
         </div>
 
         <div *ngIf="displayAssignment">
             <h3>Documents fournis par l'enseignant</h3>
             
-            <p (click)="downloadTeacherFiles(assignment.file.id_file)" style="margin:15px" class="button hyperlien">{{assignment.file.displayed_name + assignment.file.extension}}</p>
+            <p (click)="downloadTeacherFiles(assignment.file.id_file)" class="detail" class="button hyperlien"><u>{{assignment.file.displayed_name + assignment.file.extension}}</u></p>
                         
                  
         </div>
@@ -39,7 +65,7 @@
             </tr>
             <tr *ngFor="let correction of assignment.corrected_work_files">
                 <td class="detail hyperlien" (click)="downloadTeacherCorrection(correction.id_file, correction.displayed_name + correction.extension)"><u><p style="line-height:30px">{{correction.displayed_name + correction.extension}}</p></u></td>
-                <td class="second-column">{{correction.handed_date}}</td>
+                <td style="text-align: center;">{{formatDateObject(correction.handed_date)}}</td>
             </tr>
             
         </table>
