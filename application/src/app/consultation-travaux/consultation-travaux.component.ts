@@ -47,7 +47,6 @@ export class ConsultationTravauxComponent {
 
     this.currentUser.getStudentAssignment(this.assignmentID).subscribe({
       next: (response)=>{
-        console.log(response);
         this.assignment = response;
         this.assignment.available_date = this.formatDateObject(response.available_date);
         this.assignment.due_date = this.formatDateObject(response.due_date);
@@ -107,6 +106,24 @@ export class ConsultationTravauxComponent {
       }
 
 
+    });
+  }
+
+  downloadTeacherFiles(id_file : string){
+    this.currentUser.downloadTeacherAssignmentFile(id_file).subscribe({
+      next:(response)=>{
+        var file = require("file-saver");
+        file.saveAs(response, "assignmentFile.zip");
+      }
+  });
+  }
+
+  downloadTeacherCorrection(id_file : string, fileName : string){
+    this.currentUser.downloadTeacherCorrectionFile(id_file).subscribe({
+      next:(response)=>{
+        var file = require("file-saver");
+        file.saveAs(response, fileName);
+      }
     });
   }
 

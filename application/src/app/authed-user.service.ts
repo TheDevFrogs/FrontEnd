@@ -45,6 +45,14 @@ export class AuthedUserService {
     return this.http.get<any>(this.serverAdress + "/file/download/handedassignmentfile/fileId=" + id_file, {responseType: 'blob' as 'json'});
   }
 
+  downloadTeacherAssignmentFile(id_file: string){
+    return this.http.get<any>(this.serverAdress + "/file/download/assignmentfile/fileId=" + id_file, {responseType: 'blob' as 'json'});
+  }
+
+  downloadTeacherCorrectionFile(id_file: string){
+    return this.http.get<any>(this.serverAdress + "/file/download/assignmentcorrection/fileId=" + id_file, {responseType: 'blob' as 'json'});
+  }
+
   downloadAllHanded(assignmentId : string){
     return this.http.get<any>(this.serverAdress + "/file/download/grouphandedassignment/assignmentId=" + assignmentId, {responseType: 'blob' as 'json'});
   }
@@ -85,6 +93,15 @@ export class AuthedUserService {
     formData.append("file", content);
 
     return this.http.post(this.serverAdress + "/assignment/hand", formData);
+  }
+
+  handCorrection(assignmentId : string, content : Blob){
+    const formData = new FormData();
+
+    formData.append("assignmentId", assignmentId);
+    formData.append("file", content);
+
+    return this.http.post(this.serverAdress + "/file/upload/groupassignmentcorrection", formData, {responseType: 'string' as 'json'});
   }
 
 

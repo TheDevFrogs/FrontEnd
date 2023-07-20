@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, ViewChild, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DropBoxComponent } from '../drop-box/drop-box.component';
 import { AuthedUserService } from '../authed-user.service';
@@ -12,6 +12,9 @@ import { ActivatedRoute, Route } from '@angular/router';
   styleUrls: ['./correction-remise.component.css']
 })
 export class CorrectionRemiseComponent {
+
+  @ViewChild(DropBoxComponent)
+  private dropBox!: DropBoxComponent;
 
   route : ActivatedRoute = inject(ActivatedRoute);
 
@@ -34,7 +37,15 @@ export class CorrectionRemiseComponent {
   }
 
   public fileSaved(toSend: Blob){
-    console.log(toSend);
+    this.currentUser.handCorrection(this.assignmentId, toSend).subscribe({
+      next:(response)=>{
+        //COOL
+        this.dropBox.cancel();
+      },
+      error:(err)=>{
+        console.log(err);
+      }
+    });
   }
 
   public downloadAll(){
