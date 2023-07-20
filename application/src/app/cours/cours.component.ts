@@ -1,4 +1,3 @@
-import { Homework } from './../homework';
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterLink, RouterOutlet } from '@angular/router';
@@ -59,30 +58,6 @@ export class CoursComponent {
         this.classList = response;
 
         console.log(this.classList);
-
-        /*for(let i = 0; i < response.length; i++){
-          var homeworks : Homework[];
-          var teachers : Teacher[];
-          homeworks = [];
-          teachers = []
-
-          if(response[i].assigments != null){
-            for(let j = 0; j < response[i].assigments.length; j++){
-              homeworks.push(new Homework(response[i].assigments[j].name, this.getIcon(response[i].assigments[j].status), response[i].assigments[j].name, response[i].assigments[j].id_assignment));
-            }
-          }
-
-          if(response[i].teachers != null){
-            for(let j = 0; j < response[i].teachers.length; j++){
-              teachers.push(new Teacher(response[i].teachers[j].cip, response[i].teachers[j].first_name, response[i].teachers[j].last_name));
-            }
-          }
-
-          newClassList.push(new Cours(response[i].name, response[i].classTag, teachers, homeworks))
-
-        }
-
-        this.classList = newClassList;*/
       },
       error:(err)=>{
         console.log(err);

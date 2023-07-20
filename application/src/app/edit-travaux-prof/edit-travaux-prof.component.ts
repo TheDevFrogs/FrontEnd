@@ -1,4 +1,3 @@
-import { TeacherAssignmentPage } from './../teacherAssignmentPage';
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
