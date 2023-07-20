@@ -13,7 +13,7 @@
         </ul>
 
          
-        <table *ngIf="class.homework.length > 0" class="tableauListeResmises">
+        <table *ngIf="class.assigments.length > 0" class="tableauListeResmises">
             <col style="width:93%;">
             <col style="width:7%">
 
@@ -23,20 +23,20 @@
                 <th>Status</th>
             </tr>
 
-            <tr *ngFor="let homework of class.homework">
+            <tr *ngFor="let homework of class.assigments">
                 <td [routerLink]="['/session/' + selectedSession + '/' +  class.classTag]" 
-                    [queryParams]="{ assignmentId : homework.id}"
+                    [queryParams]="{ assignmentId : homework.id_assignment}"
                     class="hyperlien first-column"><u>{{homework.name}}</u></td>
 
                 <td class="second-column">
-                    <span [class]="homework.status" class="material-symbols-outlined">{{homework.status}}</span>
+                    <span [class]="getIcon(homework.status)" class="material-symbols-outlined">{{getIcon(homework.status)}}</span>
                 </td>
             </tr>
 
 
         </table>
 
-        <div *ngIf="class.homework.length == 0">
+        <div *ngIf="class.assigments.length == 0">
             <br>
             <p style="font-weight: bold;">Aucune remise pour ce cours</p>
         </div>

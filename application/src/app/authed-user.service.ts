@@ -42,9 +42,11 @@ export class AuthedUserService {
   }
 
   downloadAssignmentFile(id_file : string){
-    let params = new HttpParams();
-    params = params.append("ok", "okok");
-    return this.http.get<any>(this.serverAdress + "/file/download/handedassignmentfile/fileId=" + id_file, {params: params, responseType: 'blob' as 'json'});
+    return this.http.get<any>(this.serverAdress + "/file/download/handedassignmentfile/fileId=" + id_file, {responseType: 'blob' as 'json'});
+  }
+
+  downloadAllHanded(assignmentId : string){
+    return this.http.get<any>(this.serverAdress + "/file/download/grouphandedassignment/assignmentId=" + assignmentId, {responseType: 'blob' as 'json'});
   }
 
   createAssignment(group_id : string, name : string, description : string, due_date : string, close_date : string, available_date : string, content: Blob){

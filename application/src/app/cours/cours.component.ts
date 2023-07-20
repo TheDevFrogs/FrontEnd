@@ -3,8 +3,7 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { AuthedUserService } from '../authed-user.service';
-import { Cours } from '../cours';
-import { Teacher } from '../teacher';
+
 
 
 @Component({
@@ -23,7 +22,7 @@ export class CoursComponent {
   selectedSession = 'none';
   sessionID = "-1";
   
-  classList : Cours[];
+  classList;
 
   currentUser: AuthedUserService;
 
@@ -47,10 +46,6 @@ export class CoursComponent {
       return;
     }
 
-    var newClassList : Cours[];
-
-    newClassList = [];
-
     this.currentFullRoute = this.router.url;
 
     this.selectedSession = String(this.route.snapshot.params['selectedSession']);
@@ -61,7 +56,11 @@ export class CoursComponent {
     this.currentUser.getClasses(this.sessionID, "student").subscribe({
       next:(response)=>{
 
-        for(let i = 0; i < response.length; i++){
+        this.classList = response;
+
+        console.log(this.classList);
+
+        /*for(let i = 0; i < response.length; i++){
           var homeworks : Homework[];
           var teachers : Teacher[];
           homeworks = [];
@@ -83,7 +82,7 @@ export class CoursComponent {
 
         }
 
-        this.classList = newClassList;
+        this.classList = newClassList;*/
       },
       error:(err)=>{
         console.log(err);
@@ -94,7 +93,7 @@ export class CoursComponent {
 
   }
 
-  getIcon(assingmentStatus : string){
+  public getIcon(assingmentStatus : string){
       if(assingmentStatus === "scheduled"){
         return "event";
       }

@@ -44,7 +44,9 @@
                         </p>
                     </td>
                     <td class="button second-column">
-                        <div class="buttonCorriger">
+                        <div class="buttonCorriger"
+                             [routerLink]="['corriger-multiple']"
+                             [queryParams]="{assignmentName : this.assigment.name, assignmentId : this.assigment.id_assignment}">
                             <span style="vertical-align: middle;">Corriger </span><span class="iconButton material-symbols-outlined">edit</span>
                         </div>
                     </td>

@@ -2,9 +2,6 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { AuthedUserService } from '../authed-user.service';
-import { TeacherClass } from '../TeacherClass';
-import { Teacher } from '../teacher';
-import { TeacherAssignmentPreview } from '../teacherAssingmentPreview';
 import { formatDate} from '@angular/common';
 
 @Component({
@@ -23,7 +20,7 @@ export class CoursProfComponent {
   sessionID = "-1";
   selectedSession = 'none';
 
-  classList : TeacherClass[];
+  classList;
   
   currentUser : AuthedUserService;
   
@@ -37,8 +34,6 @@ export class CoursProfComponent {
       }
     );
 
-    this.classList = [];
-
   }
 
   public async ngOnInit(){
@@ -48,11 +43,6 @@ export class CoursProfComponent {
       return;
     }
 
-    console.log("Update");
-
-    var newClassList : TeacherClass[];
-    newClassList = [];
-
     this.currentFullRoute = this.router.url;
 
     this.sessionID = String(this.route.snapshot.queryParamMap.get('sessionId'));
@@ -60,26 +50,7 @@ export class CoursProfComponent {
     this.currentUser.getClasses(this.sessionID, "teacher").subscribe({
       next:(response)=>{
 
-        for(let i = 0; i < response.length; i++){
-          
-          var teachers  : Teacher[];
-          var assignments : TeacherAssignmentPreview[];
-          teachers = [];
-          assignments = [];
-
-          for(let j = 0; j < response[i].teachers.length; j++){
-            teachers.push(new Teacher(response[i].teachers[j].cip, response[i].teachers[j].first_name, response[i].teachers[j].last_name));
-          }
-
-          for(let j = 0; j < response[i].assigments.length; j++){
-            assignments.push(new TeacherAssignmentPreview(response[i].assigments[j].id_assignment, response[i].assigments[j].due_date, response[i].assigments[j].name));
-          }
-
-
-          newClassList.push(new TeacherClass(response[i].id_group, response[i].name, response[i].classTag, response[i].no_group, teachers, assignments));
-        }
-
-        this.classList = newClassList;
+        this.classList = response;
 
       },
       error:(err)=>{

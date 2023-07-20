@@ -14,20 +14,10 @@
 
         <div *ngIf="displayAssignment">
             <h3>Documents fournis par l'enseignant</h3>
-            <div class="detail">
-                <table class="tableauListeResmises">
-                <col style="width:89%;">
-                <col style="width:11%">
-                    <tr>
-                        <p style="line-height:30px">{{assignment.file.file_name}}</p>
-                        <td class="second-column">
-                            <div class="button buttonTelecharger">
-                                <span style="vertical-align: middle;">Télécharger</span><span class="iconButton material-symbols-outlined">download</span>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-            </div>
+            
+            <p style="margin:15px" class="button hyperlien">{{assignment.file.displayed_name + assignment.file.extension}}</p>
+                        
+                 
         </div>
 
         <h3 *ngIf="!displayAssignment" style="margin-bottom: 5px;margin-top: 5px;">Aucun documents fournis par l'enseignant</h3>
@@ -67,7 +57,7 @@
                 </div>
             </tr>
             <tr *ngFor="let correction of assignment.handed_work_files">
-                <td class="detail hyperlien" (click)="downloadHandedIn(correction.id_file)">
+                <td class="detail hyperlien" (click)="downloadHandedIn(correction.id_file, correction.displayed_name)">
                     <u><p style="line-height:30px">{{correction.displayed_name}}</p></u>
                 </td>
                 <td class="second-column">{{formatDateObject(correction.handed_date)}}</td>

@@ -18,6 +18,9 @@ export class DropBoxComponent{
   @Input()
   enableSend : boolean;
 
+  @Input()
+  onlyZip : boolean;
+
   @Output()
   onFileChanges = new EventEmitter<any>();
 
@@ -38,13 +41,10 @@ export class DropBoxComponent{
 
 
   ngOnInit(){
-   
+   if(this.onlyZip == undefined){
+    this.onlyZip = false;
+   }
   }
-
-  public send(){
-    this.zipAndSend();
-  }
-
 
   saveZip(){
     this.zip.generateAsync({type:"blob"}).then((content) => {
@@ -54,22 +54,33 @@ export class DropBoxComponent{
 
   zipAndSend(){
 
-    var counter = 0;
-
-    for (var droppedFile of this.files) {
-      // Is it a file?
-      if (droppedFile.fileEntry.isFile) {
-        const fileEntry = droppedFile.fileEntry as FileSystemFileEntry;
-          fileEntry.file((file: File) => {
-            counter++;
-            this.zip.file(file.name, file);
-
-            if(counter == this.files.length){
-              this.saveZip();
-            }
-        });
-      } 
+    if(this.onlyZip){
+      const fileEntry = this.files[0].fileEntry as FileSystemFileEntry;
+      fileEntry.file((file: File)=>{
+        var monBlob : Blob;
+        monBlob = file;
+        this.onFileSave.emit(monBlob);
+      });
     }
+    else{
+      var counter = 0;
+  
+      for (var droppedFile of this.files) {
+        // Is it a file?
+        if (droppedFile.fileEntry.isFile) {
+          const fileEntry = droppedFile.fileEntry as FileSystemFileEntry;
+            fileEntry.file((file: File) => {
+              counter++;
+              this.zip.file(file.name, file);
+  
+              if(counter == this.files.length){
+                this.saveZip();
+              }
+          });
+        } 
+      }
+    }
+
 
   }
 
@@ -83,10 +94,8 @@ export class DropBoxComponent{
   }
 
   public dropped(files: NgxFileDropEntry[]) {
-
-    console.log("Parcourir");
     
-    if(!this.enableSend){
+    if(!this.enableSend && !this.onlyZip){
 
       var counter = this.files.length;
 
@@ -102,6 +111,17 @@ export class DropBoxComponent{
               }
           });
         } 
+      }
+    }
+
+    if(this.onlyZip){
+      if(files.length > 1){
+        console.log("Multiple files");
+        return;
+      }
+      if(!files[0].relativePath.endsWith(".zip")){
+        console.log("Not zip");
+        return;
       }
     }
 
