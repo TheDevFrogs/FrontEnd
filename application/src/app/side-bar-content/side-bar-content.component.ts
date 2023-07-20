@@ -49,9 +49,6 @@ export class SideBarContentComponent {
         this.showSemester = this.semesterList.length > 0;
         this.showTeachings = this.teachingList.length > 0;
 
-        this.showSemester = true;
-        this.showTeachings = true;
-    
         if(!this.showSemester && !this.showTeachings){
           this.selectedSession = 'error';
         }
