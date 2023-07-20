@@ -1,17 +1,26 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <div class="singleTravailContainer">
     <div class="titreTravailContainer">
-        {{assignmentName}} (Correction de groupe)
+        {{assignmentName}} (Correction individuelle)
     </div>
     <div class="detailTravailContainer">
         
         <table>
-            <col style="width:55%">
-            <col style="width:45%">
+            <col style="width:12%">
+            <col style="width:25%">
+            <col style="width:63%">
+            <td>
+                <div class="leftBuble">
+                    <mat-select panelClass="dropDownSelect" [(value)]="selected">
+                        <mat-option>Aucune</mat-option>
+                        <mat-option *ngFor="let team of teams" value="team">Équipe {{team}}</mat-option>
+                    </mat-select>
+                </div>
+            </td>
 
-            <td >
-                <div (click)="downloadAll()" class="button buttonTelecharger">
-                    <span style="vertical-align: middle;">Télécharger les Travaux des étudiants </span><span class="iconButton material-symbols-outlined">download</span>
+            <td>
+                <div class="rightBuble button buttonTelecharger">
+                    <span style="vertical-align: middle;">Télécharger la remise de cette équipe</span><span class="iconButton material-symbols-outlined">download</span>
                 </div>
             </td>
         </table>

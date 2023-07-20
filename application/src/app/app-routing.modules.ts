@@ -5,6 +5,7 @@ import { CoursComponent } from './cours/cours.component';
 import { ConsultationTravauxComponent } from './consultation-travaux/consultation-travaux.component';
 import { CoursProfComponent } from './cours-prof/cours-prof.component';
 import { CorrectionRemiseComponent } from './correction-remise/correction-remise.component';
+import { SingleCorrectionRemiseComponent } from './single-correction-remise/single-correction-remise.component';
 
 
 
@@ -38,6 +39,11 @@ var routes: Routes = [
   {
     path: 'enseignement/:selectedSession/corriger-multiple',
     component: CorrectionRemiseComponent,
+    title : 'Correction de remise'
+  },
+  {
+    path: 'enseignement/:selectedSession/corriger-single',
+    component: SingleCorrectionRemiseComponent,
     title : 'Correction de remise'
   }
 

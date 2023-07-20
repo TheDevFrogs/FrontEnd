@@ -33,8 +33,9 @@
         
         <ng-container *ngIf="class.assigments.length > 0">
             <table *ngFor="let assigment of class.assigments" class="tableauListeResmises">
-                <col style="width:92%;">
-                <col style="width:8%">
+                <col style="width:70%;">
+                <col style="width:15%">
+                <col style="width:15%">
                 <tr>
                     <td>
                         <p [routerLink]="['nouvelleRemise']"
@@ -43,11 +44,18 @@
                            <u>{{formatDateObject(assigment.due_date) + " " + assigment.name}}</u>
                         </p>
                     </td>
-                    <td class="button second-column">
+                    <td class="button">
+                        <div class="buttonCorriger"
+                             [routerLink]="['corriger-single']"
+                             [queryParams]="{assignmentName : this.assigment.name, assignmentId : this.assigment.id_assignment}">
+                            <span style="vertical-align: middle;">Correction individuelle</span><span class="iconButton material-symbols-outlined">edit</span>
+                        </div>
+                    </td>
+                    <td class="button">
                         <div class="buttonCorriger"
                              [routerLink]="['corriger-multiple']"
                              [queryParams]="{assignmentName : this.assigment.name, assignmentId : this.assigment.id_assignment}">
-                            <span style="vertical-align: middle;">Corriger </span><span class="iconButton material-symbols-outlined">edit</span>
+                            <span style="vertical-align: middle;">Correction d'ensemble</span><span class="iconButton material-symbols-outlined">edit</span>
                         </div>
                     </td>
                 </tr>
