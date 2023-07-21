@@ -1,11 +1,12 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <div *ngFor="let class of classList" class="singleTravailContainer">
     <div class="titreTravailContainer">
-        {{class.name}}
+        {{class.name + " (" + class.classTag + ")"}}
     </div>
 
     <div class="detailTravailContainer">
-    
+        
+        <p style="font-weight: bold;margin-bottom: 15px;">Groupe : <span style="font-weight: 400;">{{class.no_group}}</span> </p>
         <p style="font-weight: bold;margin-bottom: 5px;">Professeur(s) en charge</p>
 
         <ul>

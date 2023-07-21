@@ -21,6 +21,8 @@ export class EditTravauxProfComponent {
 
   currentUser : AuthedUserService;
 
+  showError = false;
+
   route: ActivatedRoute = inject(ActivatedRoute);
 
   editForm = new FormGroup({
@@ -105,6 +107,7 @@ export class EditTravauxProfComponent {
     if(!this.verifyInfo()){
       //Afficher in popup
       console.log("Donnes invalides");
+      this.showError = true;
       return;
     }
 
@@ -117,7 +120,12 @@ export class EditTravauxProfComponent {
                                       this.zippedFile).subscribe(
     {
       next:(response)=>{
-        console.log(response);
+        var urlSplit = this.router.url.split('/');
+        this.router.navigate(
+          [urlSplit[1] + "/" + urlSplit[2]],
+          { queryParams: { refresh: true},
+            queryParamsHandling: 'merge' },
+        );
       }
     
     });
@@ -127,6 +135,7 @@ export class EditTravauxProfComponent {
     //Verifier que l'info est ok sinon popup
     if(!this.verifyInfo()){
       //Afficher in popup
+      this.showError = true;
       console.log("Donnes invalides");
       return;
     }
@@ -140,7 +149,12 @@ export class EditTravauxProfComponent {
                                       this.zippedFile).subscribe(
     {
       next:(response)=>{
-        
+        var urlSplit = this.router.url.split('/');
+        this.router.navigate(
+          [urlSplit[1] + "/" + urlSplit[2]],
+          { queryParams: { refresh: true},
+            queryParamsHandling: 'merge' },
+        );
       }
     
     });

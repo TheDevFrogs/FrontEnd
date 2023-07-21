@@ -56,8 +56,6 @@ export class CoursComponent {
       next:(response)=>{
 
         this.classList = response;
-
-        console.log(this.classList);
       },
       error:(err)=>{
         console.log(err);

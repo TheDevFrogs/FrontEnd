@@ -16,28 +16,28 @@
                     <col style="width:85%">
 
                     <tr>
-                        <td style="line-height:30px">Nom du travail: </td>
+                        <td style="line-height:30px"><span style="color: red;">*</span>Nom du travail: </td>
                         <td> 
                             <input type="text" class="textInput" rows="1" cols="50" placeholder="Nom" maxlength="150" style="resize:none;" formControlName="nom">
                         </td>
                     </tr>
                     
                     <tr>
-                        <td style="line-height:30px">Ouverture des dépots: </td>
+                        <td style="line-height:30px"><span style="color: red;">*</span>Ouverture des dépots: </td>
                         <td>
                             <input class="textInput" [owlDateTimeTrigger]="tempsOuverture" [owlDateTime]="tempsOuverture" placeholder="Choisir date/temps" formControlName="dateOuverture">
                             <owl-date-time #tempsOuverture></owl-date-time>  <span class="iconButtonClock material-symbols-outlined">event</span>
                         </td>
                     </tr>
                     <tr>
-                        <td style="line-height:30px">Date limite de remise: </td>
+                        <td style="line-height:30px"><span style="color: red;">*</span>Date limite de remise: </td>
                         <td> 
                             <input class="textInput" [owlDateTimeTrigger]="tempsRemise" [owlDateTime]="tempsRemise" placeholder="Choisir date/temps" formControlName="dateLimite">
                             <owl-date-time #tempsRemise></owl-date-time><span style="vertical-align: middle;"></span>  <span class="iconButtonClock material-symbols-outlined">event</span>
                         </td>
                     </tr>
                     <tr>
-                        <td style="line-height:30px">Fermeture des dépots: </td>
+                        <td style="line-height:30px"><span style="color: red;">*</span>Fermeture des dépots: </td>
                         <td> 
                             <input class="textInput" [owlDateTimeTrigger]="tempsFermeture" [owlDateTime]="tempsFermeture" placeholder="Choisir date/temps" formControlName="dateFermeture">
                             <owl-date-time #tempsFermeture></owl-date-time>  <span class="iconButtonClock material-symbols-outlined">event</span>
@@ -46,7 +46,7 @@
                 </table>
             </div>
             
-            <h3>Description:</h3>
+            <h3><span style="color: red;">*</span>Description:</h3>
             <div style="margin-bottom: 15px; margin-top: 10px;">
                 <textarea class="textInput" rows="6" placeholder="Description du travail." style="width:100%; font-size: 1.3em; resize: none;" formControlName="description"></textarea>
             </div>
@@ -71,18 +71,12 @@
             <tr>
                 <td *ngIf="!this.eddition">
                     <div (click)="enregistrer()" 
-                         [routerLink]="['..']" 
-                         [queryParams]="{refresh : true}"
-                         queryParamsHandling="merge"
                          class="button buttonEnregistrer">
                         <span style="vertical-align: middle;">Enregistrer</span><span class="iconButton material-symbols-outlined">save</span>
                     </div>
                 </td>
                 <td *ngIf="this.eddition">
                     <div (click)="updateAssignment()" 
-                         [routerLink]="['..']" 
-                         [queryParams]="{refresh : true}"
-                         queryParamsHandling="merge"
                          class="button buttonEnregistrer">
                         <span style="vertical-align: middle;">Mettre à jour</span><span class="iconButton material-symbols-outlined">save</span>
                     </div>
@@ -104,7 +98,17 @@
                 </td>
                     
             </tr>
+            <tr>
+                <td>
+                    <br>
+                    <p><span style="color: red;">*</span> Champs obligatoires</p>
+                </td>
+            </tr>
         </table>
+
+        <div *ngIf="showError">
+            <p style="color: red;"> Certains champ sont invalides</p>
+        </div>
 
     </div>
 </div>

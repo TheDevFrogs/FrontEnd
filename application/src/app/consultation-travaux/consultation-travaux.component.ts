@@ -54,7 +54,7 @@ export class ConsultationTravauxComponent {
         
         var currentDate = new Date();
 
-        if(currentDate < new Date(Date.parse(response.due_date.substring(0, response.due_date.length-6)))){
+        if(currentDate < new Date(Date.parse(response.close_date.substring(0, response.close_date.length-6)))){
           this.displayFileDrop = true;
         }
 
