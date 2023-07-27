@@ -36,7 +36,7 @@
             <table *ngFor="let assigment of class.assigments" class="tableauListeResmises">
                 <col style="width:70%;">
                 <col style="width:15%">
-                <col style="width:15%">
+               
                 <tr>
                     <td>
                         <p [routerLink]="['nouvelleRemise']"
@@ -45,7 +45,7 @@
                            <u>{{formatDateObject(assigment.due_date) + " " + assigment.name}}</u>
                         </p>
                     </td>
-                    <td class="button">
+                    <td *ngIf="false" class="button">
                         <div class="buttonCorriger"
                              [routerLink]="['corriger-single']"
                              [queryParams]="{assignmentName : this.assigment.name, assignmentId : this.assigment.id_assignment}">
