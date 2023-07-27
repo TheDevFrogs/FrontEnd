@@ -35,8 +35,18 @@
                         {{formatDateObject(assignment.close_date)}}
                     </td>
                 </tr>
+                <tr>
+                    <td>
+                        <p style="line-height:30px"> Description: </p>
+                    </td>
+                    <td style="padding-left: 50px;">
+                        {{assignment.description}}
+                    </td>
+                </tr>
             </table>
         </div>
+
+
 
         <div *ngIf="displayAssignment">
             <h3>Documents fournis par l'enseignant</h3>
