@@ -24,6 +24,8 @@ export class ConsultationTravauxComponent {
 
   displayFileDrop : boolean;
 
+  early : boolean;
+
   currentUser : AuthedUserService;
 
   assignment;
@@ -36,6 +38,8 @@ export class ConsultationTravauxComponent {
     this.currentUser = currentUser;
 
     this.displayFileDrop = false;
+
+    this.early = false;
 
   }
 
@@ -54,8 +58,13 @@ export class ConsultationTravauxComponent {
         
         var currentDate = new Date();
 
-        if(currentDate < new Date(Date.parse(response.close_date.substring(0, response.close_date.length-6)))){
+        if(currentDate < new Date(Date.parse(response.close_date.substring(0, response.close_date.length-6))) &&
+           currentDate > new Date(Date.parse(response.available_date.substring(0, response.available_date.length-6)))){
           this.displayFileDrop = true;
+        }
+
+        if(currentDate < new Date(Date.parse(response.available_date.substring(0, response.available_date.length-6)))){
+          this.early = true;
         }
 
       },

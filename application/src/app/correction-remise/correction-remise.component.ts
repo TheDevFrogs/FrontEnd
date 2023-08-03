@@ -22,8 +22,12 @@ export class CorrectionRemiseComponent {
 
   assignmentId : string;
 
-  constructor(private currentUser: AuthedUserService, ){
+  showSuccess : boolean;
+  showError : boolean;
 
+  constructor(private currentUser: AuthedUserService, ){
+    this.showSuccess = false;
+    this.showError = false;
   }
 
 
@@ -41,9 +45,16 @@ export class CorrectionRemiseComponent {
       next:(response)=>{
         //COOL
         this.dropBox.cancel();
+        this.showSuccess = true;
+        this.showError = false;
+
       },
       error:(err)=>{
         console.log(err);
+
+        this.showError = true;
+        this.showSuccess = false;
+
       }
     });
   }

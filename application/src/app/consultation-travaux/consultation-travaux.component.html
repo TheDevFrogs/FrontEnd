@@ -106,7 +106,8 @@
             </div>
         </div>
 
-        <h3 *ngIf="!displayFileDrop">La remise est maintenant fermée</h3>
+        <h3 *ngIf="!displayFileDrop && !early">La remise est maintenant fermée</h3>
+        <h3 *ngIf="!displayFileDrop && early">La remise n'est pas encore ouverte</h3>
 
     </div>
 </div>

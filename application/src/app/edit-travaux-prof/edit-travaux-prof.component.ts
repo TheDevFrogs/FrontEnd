@@ -57,12 +57,22 @@ export class EditTravauxProfComponent {
       this.currentUser.getTeacherAssignment(this.assingmentId).subscribe({
         next:(response)=>{
 
+          console.log(response);
+
+          console.log(this.getDateFromString(response.due_date));
+
+          
+          
+          
           this.editForm.controls["nom"].setValue(response.name);
           this.editForm.controls["dateLimite"].setValue(this.getDateFromString(response.due_date));
           this.editForm.controls["dateOuverture"].setValue(this.getDateFromString(response.available_date));
           this.editForm.controls["dateFermeture"].setValue(this.getDateFromString(response.close_date));
           this.editForm.controls["description"].setValue(response.description);
 
+          console.log(this.editForm.value.dateLimite);
+          
+          console.log(formatDate(this.editForm.value.dateLimite, 'yyyy-MM-dd HH:mm', 'en_us', '-0400'));
 
         },
         error:(err)=>{
@@ -114,9 +124,9 @@ export class EditTravauxProfComponent {
     this.currentUser.createAssignment(this.group_id,
                                       this.editForm.value.nom as string, 
                                       this.editForm.value.description as string, 
-                                      formatDate(this.editForm.value.dateLimite, 'yyyy-MM-dd HH:mm', 'en_us', '+0400'),
-                                      formatDate(this.editForm.value.dateFermeture, 'yyyy-MM-dd HH:mm', 'en_us', '+0400'), 
-                                      formatDate(this.editForm.value.dateOuverture, 'yyyy-MM-dd HH:mm', 'en_us', '+0400'), 
+                                      formatDate(this.editForm.value.dateLimite, 'yyyy-MM-dd HH:mm', 'en_us', '-0800'),
+                                      formatDate(this.editForm.value.dateFermeture, 'yyyy-MM-dd HH:mm', 'en_us', '-0800'), 
+                                      formatDate(this.editForm.value.dateOuverture, 'yyyy-MM-dd HH:mm', 'en_us', '-0800'), 
                                       this.zippedFile).subscribe(
     {
       next:(response)=>{
@@ -143,9 +153,9 @@ export class EditTravauxProfComponent {
     this.currentUser.updateAssignment(this.assingmentId,
                                       this.editForm.value.nom as string, 
                                       this.editForm.value.description as string, 
-                                      formatDate(this.editForm.value.dateLimite, 'yyyy-MM-dd HH:mm', 'en_us', '+0400'),
-                                      formatDate(this.editForm.value.dateFermeture, 'yyyy-MM-dd HH:mm', 'en_us', '+0400'), 
-                                      formatDate(this.editForm.value.dateOuverture, 'yyyy-MM-dd HH:mm', 'en_us', '+0400'), 
+                                      formatDate(this.editForm.value.dateLimite, 'yyyy-MM-dd HH:mm', 'en_us', '-0800'),
+                                      formatDate(this.editForm.value.dateFermeture, 'yyyy-MM-dd HH:mm', 'en_us', '-0800'), 
+                                      formatDate(this.editForm.value.dateOuverture, 'yyyy-MM-dd HH:mm', 'en_us', '-0800'), 
                                       this.zippedFile).subscribe(
     {
       next:(response)=>{

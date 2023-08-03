@@ -27,5 +27,15 @@
             </div>
         </div>
 
+        <div *ngIf="showSuccess">
+            <br>
+            <p style="color: #2980B9;font-size: large;font-weight: bold;">La correction a été envoyée aux étudiants avec succès !</p>
+        </div>
+
+        <div *ngIf="showError">
+            <br>
+            <p style="color: #C0392B;font-size: large;font-weight: bold;">Échec de l'envoie des correction</p>
+        </div>
+
     </div>
 </div>

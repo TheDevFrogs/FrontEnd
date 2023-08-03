@@ -34,8 +34,9 @@
         
         <ng-container *ngIf="class.assigments.length > 0">
             <table *ngFor="let assigment of class.assigments" class="tableauListeResmises">
-                <col style="width:70%;">
+                <col style="width:75%;">
                 <col style="width:15%">
+                <col *ngIf="false" style="width:10%">
                
                 <tr>
                     <td>
@@ -45,18 +46,18 @@
                            <u>{{formatDateObject(assigment.due_date) + " " + assigment.name}}</u>
                         </p>
                     </td>
-                    <td *ngIf="false" class="button">
-                        <div class="buttonCorriger"
-                             [routerLink]="['corriger-single']"
-                             [queryParams]="{assignmentName : this.assigment.name, assignmentId : this.assigment.id_assignment}">
-                            <span style="vertical-align: middle;">Correction individuelle</span><span class="iconButton material-symbols-outlined">edit</span>
-                        </div>
-                    </td>
                     <td class="button">
                         <div class="buttonCorriger"
                              [routerLink]="['corriger-multiple']"
                              [queryParams]="{assignmentName : this.assigment.name, assignmentId : this.assigment.id_assignment}">
-                            <span style="vertical-align: middle;">Correction d'ensemble</span><span class="iconButton material-symbols-outlined">edit</span>
+                            <span style="vertical-align: middle;">Correction de groupe</span><span class="iconButton material-symbols-outlined">edit</span>
+                        </div>
+                    </td>
+                    <td *ngIf="false" class="button">
+                        <div class="buttonVueEnsemble"
+                             [routerLink]="['corriger-single']"
+                             [queryParams]="{assignmentName : this.assigment.name, assignmentId : this.assigment.id_assignment}">
+                            <span style="vertical-align: middle;">Aperçu</span><span class="iconButton material-symbols-outlined">visibility</span>
                         </div>
                     </td>
                 </tr>
